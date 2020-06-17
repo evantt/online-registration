@@ -15,8 +15,8 @@
                     <div>(+62)853 523 5421 (Abdul)<div>
                     <div>(+62)823 531 5164 (Joko)<div>
                 </li>
-                <li class="list-group-item"><div>Facebook: </div>hangkesturi69 </li>
-                <li class="list-group-item"><div>Twitter: </div>@hkesturi69 </li>
+                <li class="list-group-item"><div>Facebook: </div>hangkesturi169 </li>
+                <li class="list-group-item"><div>Twitter: </div>@hkesturi169 </li>
                 <li class="list-group-item"><div>Lokasi: </div>Jl. Sutomo No. 169, Medan, Sumatera Utara </li>
             </ul>
         </div>
