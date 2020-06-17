@@ -2,10 +2,11 @@
     <head>
         <title>Contact</title>
         <link rel="stylesheet" href="CSS/bootstrap.css">
+        <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
         <?php require("Layout\\header.php"); ?> 
-        <div class="container">
+        <div class="container" style="margin-top: 70px;">
             <div class="display-4" style="margin: 1rem; text-align: center">Daftar Sekarang</div>
             <form>
                 <div class="input-group mb-3">
