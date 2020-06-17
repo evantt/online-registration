@@ -13,7 +13,7 @@
    <head>
       <title>Login</title>
       <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel = "stylesheet" crossorigin="anonymous">
-      
+      <link rel="stylesheet" href="CSS/main.css">
       <style>
          body {
             padding-top: 40px;
@@ -74,8 +74,11 @@
    </head>
 	
    <body>
+      <?php
+         require("Layout/header.php");
+      ?> 
       
-      <h2>Enter Username and Password</h2> 
+      <h2 style="margin-top: 50px;">Enter Username and Password</h2> 
       <div class = "container form-signin">
          
          <?php
@@ -98,7 +101,7 @@
          ?>
       </div> <!-- /container -->
       
-      <div class = "container" style = "background-color: aliceblue;">
+      <div class = "container" style = "background-color: aliceblue; margin-bottom: 55px;">
       
          <form class = "form-signin" role = "form" 
             action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
@@ -119,6 +122,8 @@
          <!--Click here to clean <a href = "logout.php" tite = "Logout">Session.-->
          
       </div> 
-      
+      <?php
+            require("Layout/footer.php");
+        ?>
    </body>
 </html>

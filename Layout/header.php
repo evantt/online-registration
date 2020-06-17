@@ -6,15 +6,15 @@
         <div class="middle">
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="gallery.php">Gallery</a></li>
+                    <li><a href="ctc.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
         <div class="right">
              <ul class="nav__links">
-                <li><a href="#">Login</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
     </header>

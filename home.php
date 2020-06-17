@@ -53,9 +53,11 @@
 
             /* Slideshow container */
             .slideshow-container {
+            margin-top: 100px;
+            margin-left: 100px;
             max-width: 1000px;
             position: relative;
-            margin: auto;
+            /* margin: auto; */
             }
 
             /* Hide the images by default */
@@ -144,9 +146,13 @@
             to {opacity: 1}
             }
         </style>
+        <link rel="stylesheet" href="CSS/main.css">
     </head>
 
     <body>
+        <?php
+            require("Layout/header.php");
+        ?> 
         
         <!-- NOTHINGGGGGGGGGGGG -->
                 <!-- Slideshow container -->
@@ -234,6 +240,8 @@
             }
         </script>
         <!-- NOTHINGGGGGGGGGGGG -->
-        
+        <?php
+            require("Layout/footer.php");
+        ?>
     </body>
 </html>

@@ -57,7 +57,7 @@
             <div class="card">
                 <div class="desc"></div>
                 <a target="_blank" href="#">
-                    <img src="https://geo1.ggpht.com/cbk?panoid=84Xjr21rropQ1qHC9Pw8Dw&output=thumbnail&cb_client=unknown_client.imagery_viewer.gps&thumb=2&w=203&h=100&yaw=251.03233&pitch=0&thumbfov=100" style= "width: 100%; height: 95%;" align = "center">
+                    <img src="https://3.bp.blogspot.com/_GDx7sQCkliY/SaNBiUQEp0I/AAAAAAAAAQ4/TvabMd8icAQ/w1200-h630-p-k-no-nu/1991+Fisika.jpg" style= "width: 100%; height: 95%;" align = "center">
                 </a>
                 <div class="desc"></div>
             </div>
