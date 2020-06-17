@@ -11,7 +11,7 @@
                 <li class="list-group-item"><div>Email: </div> hangkesturi69@admin.hk.edu </li>
                 <li class="list-group-item">
                     <div>Telepon: </div>
-                    <div>(+62)61 4538132 (Kantor)<div>
+                    <div>(+62)61 4538132 (Kantor/Sekolah)<div>
                     <div>(+62)853 523 5421 (Abdul)<div>
                     <div>(+62)823 531 5164 (Joko)<div>
                 </li>
