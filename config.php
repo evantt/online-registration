@@ -2,10 +2,11 @@
 $host = "localhost";
 $username = "root";
 $password = "";
+$dbname = "pemrogweb2";
 
-$conn = mysqli_connect($host, $username,$password);
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
-$db = $conn->select_db("pemrogweb2");
+// $db = $conn->select_db("pemrogweb2");
 
 // var_dump($db);
 

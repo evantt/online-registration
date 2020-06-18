@@ -117,7 +117,7 @@
                name = "login">Login</button>
          </form>
          <center>
-         Tidak ada account?? Ayo buat sekarang juga!!! <a href="regis.php"> Click here to register</a>
+         Tidak ada account?? Ayo buat sekarang juga!!! <a href="signup.php"> Click here to register</a>
         </center>
          <!--Click here to clean <a href = "logout.php" tite = "Logout">Session.-->
          
