@@ -50,8 +50,8 @@ function register(){
         if (mysqli_num_rows($res_u) > 0) {
         $name_error = "Belum Lengkap"; 		
         }else{
-            $query = "INSERT INTO siswa (name, phone_number) 
-                    VALUES ('$name', '$phone_number')";
+            $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email'
+                    WHERE username = '$username';
             $results = mysqli_query($conn, $query);
             header('location: login.php');
         }
