@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require "config.php";
 // connect to database
 // $db = mysqli_connect('localhost', 'root', '', 'multi_login');
@@ -12,7 +12,7 @@ $category = "";
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['register'])) {
+if (isset($_POST['regis'])) {
 	register();
 }
 
@@ -41,23 +41,26 @@ function register(){
     if (empty($category)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
-
+	echo("here");
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
-        $sql_u = "SELECT * FROM siswa WHERE username='$username'";
+		$uname = $_SESSION['username'];
+        $sql_u = "SELECT * FROM siswa WHERE username='$uname'";
         $res_u = mysqli_query($conn, $sql_u);
-
-        if (mysqli_num_rows($res_u) > 0) {
-        $name_error = "Belum Lengkap"; 		
-        }else{
+		echo("here2");
+        if (mysqli_num_rows($res_u) == 0) {
+        	$name_error = "Belum Lengkap"; 		
+        } else{
             $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email'
-                    WHERE username = '$username';
-            $results = mysqli_query($conn, $query);
-            header('location: login.php');
+                    WHERE username = '$uname'";
+			$results = mysqli_query($conn, $query);
+			echo($query);
+			echo("here3");
+            //header('location: home.php');
         }
 							
-		}
 	}
+}
 
 // escape string
 function e($val){
