@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 
 require "config.php";
 // connect to database
@@ -6,17 +7,19 @@ require "config.php";
 
 // variable declaration
 $username = "";
-$errors   = array(); 
+$password = "";
+$errors   = array();
+$msg = "";
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['register'])) {
-	register();
+if (isset($_POST['login'])) {
+	login();
 }
 
 // REGISTER USER
-function register(){
+function login(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $username, $name_error;
+	global $conn, $errors, $username, $password, $name_error;
 
 	// receive all input values from the form. Call the e() function
     // defined below to escape form values
@@ -31,22 +34,21 @@ function register(){
 		array_push($errors, "Password is required"); 
 	}
 
-	// register user if there are no errors in the form
+	// login user if there are no errors in the form
 	if (count($errors) == 0) {
-        $sql_u = "SELECT * FROM siswa WHERE username='$username'";
-        $res_u = mysqli_query($conn, $sql_u);
-
-        if (mysqli_num_rows($res_u) > 0) {
-        $name_error = "Sorry... username already taken"; 		
-        }else{
-            $query = "INSERT INTO siswa (username, password) 
-                    VALUES ('$username', '$password')";
-            $results = mysqli_query($conn, $query);
-            header('location: login.php');
-        }
-							
-		}
+        $sql_u = "SELECT * FROM siswa WHERE username='$username' AND password='$password'";
+		$res_u = mysqli_query($conn, $sql_u);
+        if (mysqli_num_rows($res_u) != 1) {
+            $name_error = "Username or Password is incorrect."; 		
+        } else{
+			$_SESSION['valid'] = true;
+			//$_SESSION['timeout'] = time();
+			$_SESSION['username'] = $username;			
+			$_SESSION['password'] = $password;			
+			header('location: home.php');
+        }						
 	}
+}
 
 // escape string
 function e($val){

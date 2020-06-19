@@ -1,5 +1,5 @@
 <?php
-   ob_start();
+   include('db.login.php');
    session_start();
 ?>
 
@@ -79,33 +79,15 @@
       ?> 
       
       <h2 style="margin-top: 50px;">Enter Username and Password</h2> 
-      <div class = "container form-signin">
-         
-         <?php
-            $msg = '';
-            
-            if (isset($_POST['login']) && !empty($_POST['username']) 
-               && !empty($_POST['password'])) {
-				
-               if ($_POST['username'] == '' && 
-                  $_POST['password'] == '') {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = '';
-                  
-                  echo 'You have entered valid use name and password';
-               }else {
-                  $msg = 'Wrong username or password';
-               }
-            }
-         ?>
-      </div> <!-- /container -->
       
       <div class = "container" style = "background-color: aliceblue; margin-bottom: 55px;">
       
+         <!-- <div class = "container form-signin"> -->
+            
+         <!-- </div> -->
+
          <form class = "form-signin" role = "form" 
-            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
-            ?>" method = "post">
+            action = "login.php" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
             <div style = "font-size: 22px; color : black;">Username : </div>
             <input type = "text" class = "form-control" 

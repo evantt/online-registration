@@ -1,8 +1,11 @@
 <?php
+
+ob_start();
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "pemrogweb2";
+
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
@@ -19,5 +22,4 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 
 if(!$conn)
     die("Tidak dapat terkoneksi ke database");
-
 ?>
