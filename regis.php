@@ -23,7 +23,7 @@
         <div class="container" style="margin-top: 70px;">
             <div class="display-4" style="margin: 1rem; text-align: center">Daftar Sekarang</div>
 
-            <form method="post" action="regis.php" id="regis_form">
+            <form method="post" action="db.regis.php" id="regis_form">
 
             <?php echo display_error(); ?>
 
@@ -31,14 +31,14 @@
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Nama Lengkap &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value = "<?php echo $name; ?>">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "name">
                 </div>
                 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend"  <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  (Dengan Kode Area) &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value = "<?php echo $name; ?>">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number">
                 </div>  
 
                 
@@ -47,7 +47,7 @@
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat E-mail &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value = "<?php echo $email; ?>">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email">
                 </div>             
 
                         
@@ -56,7 +56,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
                      </div>
-                    <select class="custom-select" id="inputGroupSelect01" value = "<?php echo $category; ?>">
+                    <select class="custom-select" id="inputGroupSelect01" name = "category">
                         <option selected>Pilih...</option>
                         <option value="1">I - SD</option>
                         <option value="2">II - SD</option>
@@ -66,7 +66,7 @@
                         <option value="6">VI - SD</option>
                     </select>
                     </div>                         
-                <button class="btn btn-primary">Submit</button>                           
+                <button class="btn btn-primary" name="regis">Submit</button>                           
             </form>
         </div>
 
