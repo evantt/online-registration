@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <div class="navbar" id="nav">
     <header>
         <div class="left">
@@ -9,12 +13,28 @@
                     <li><a href="home.php">Home</a></li>
                     <li><a href="gallery.php">Gallery</a></li>
                     <li><a href="ctc.php">Contact</a></li>
+                    <?php if (isset($username)): ?>
+                    <li><a href="regis.php">Daftar Mahasiswa</a></li>
+                    <?php endif ?>
+                    <li><a href="login.php">Daftar Mahasiswa</a></li>
                 </ul>
             </nav>
         </div>
         <div class="right">
              <ul class="nav__links">
-                <li><a href="login.php">Login</a></li>
+             <?php
+                if(isset($_SESSION['username'])){
+                    //echo "<script type='text/javascript'>alert('logged in');</script>";
+                    echo 
+                    "<form method='post' action='logout.php'>
+                        <button class = 'btn btn-lg btn-primary btn-block' type = 'submit' 
+                        name = 'logout'>Logout</button>
+                    </form>";
+                } else {
+                    //echo "<script type='text/javascript'>alert('logging out');</script>";
+                    echo "<li><a href='login.php'>Login</a></li>";
+                }
+             ?>
             </ul>
         </div>
     </header>
