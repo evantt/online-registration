@@ -9,6 +9,8 @@ $name = "";
 $phone_number = "";
 $email = "";
 $category = "";
+$kartu_keluarga = "";
+$ijazah = "";
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
@@ -27,7 +29,8 @@ function register(){
     $phone_number    =  e($_POST['phone_number']);
     $email    =  e($_POST['email']);
 	$category    =  e($_POST['category']);
-
+	$kartu_keluarga    =  e($_POST['kartu_keluarga']);
+	$ijazah = e($_POST['ijazah']);
 	// form validation: ensure that the form is correctly filled
 	if (empty($name)) { 
 		array_push($errors, "Belum Lengkap"); 
@@ -41,6 +44,12 @@ function register(){
     if (empty($category)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
+	if (empty($kartu_keluarga)) { 
+		array_push($errors, "Belum Lengkap"); 
+    }
+    if (empty($ijazah)) { 
+		array_push($errors, "Belum Lengkap"); 
+	}
 	echo("here");
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
@@ -51,7 +60,8 @@ function register(){
         if (mysqli_num_rows($res_u) == 0) {
         	$name_error = "Belum Lengkap"; 		
         } else{
-            $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email'
+            $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email',
+					kartu_keluarga = '$kartu_keluarga'
                     WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);
 			echo($query);

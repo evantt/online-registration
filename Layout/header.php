@@ -13,6 +13,10 @@
                     <li><a href="home.php">Home</a></li>
                     <li><a href="gallery.php">Gallery</a></li>
                     <li><a href="ctc.php">Contact</a></li>
+                    <?php if (isset($username)): ?>
+                    <li><a href="regis.php">Daftar Mahasiswa</a></li>
+                    <?php endif ?>
+                    <li><a href="login.php">Daftar Mahasiswa</a></li>
                 </ul>
             </nav>
         </div>

@@ -65,7 +65,25 @@
                         <option value="5">V - SD</option>
                         <option value="6">VI - SD</option>
                     </select>
-                    </div>                         
+                    </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Kartu Keluarga &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    Select file to upload:
+                    <input type="file" name="kartu_keluarga" id="fileToUpload">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nilai Rapor &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    Select file to upload:
+                    <input type="file" name="ijazah" id="fileToUpload">
+                </div>  
+ 
+                    
                 <button class="btn btn-primary" name="regis">Submit</button>                           
             </form>
         </div>
