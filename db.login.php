@@ -8,6 +8,8 @@ require "config.php";
 // variable declaration
 $username = "";
 $password = "";
+$status = "";
+$bukti_pembayaran = "";
 $errors   = array();
 $msg = "";
 
@@ -25,6 +27,8 @@ function login(){
     // defined below to escape form values
 	$username    =  e($_POST['username']);
 	$password    =  e($_POST['password']);
+	$status   =  e($_POST['status']);
+	$bukti_pembayaran    =  e($_POST['bukti_pembayaran']);
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
@@ -44,7 +48,9 @@ function login(){
 			$_SESSION['valid'] = true;
 			//$_SESSION['timeout'] = time();
 			$_SESSION['username'] = $username;			
-			$_SESSION['password'] = $password;			
+			$_SESSION['password'] = $password;	
+			$_SESSION['status'] = $status;	
+			$_SESSION['bukti_pembayaran'] = $bukti_pembayaran;	
 			header('location: home.php');
         }						
 	}
