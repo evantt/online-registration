@@ -61,7 +61,7 @@ function register(){
         	$name_error = "Belum Lengkap"; 		
         } else{
             $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email',
-					kartu_keluarga = '$kartu_keluarga'
+					kartu_keluarga = '$kartu_keluarga', ijazah = '$ijazah'
                     WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);
 			echo($query);
