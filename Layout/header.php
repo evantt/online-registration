@@ -14,19 +14,37 @@
                     <li><a href="gallery.php">Gallery</a></li>
                     <li><a href="ctc.php">Contact</a></li>
 
-                    <?php if (isset($username) && !isset($name) && !isset($bukti_pembayaran)): ?>
-                    <li><a href="regis.php">Daftar Mahasiswa</a></li>
-                    <?php endif ?>
-
-                    <?php if (isset($username) && isset($name) && !isset($bukti_pembayaran)): ?>
-                    <li><a href="bayar.php">Daftar Mahasiswa</a></li>
-                    <?php endif ?>
-
-                    <?php if (isset($username) && isset($name) && isset($bukti_pembayaran)): ?>
-                    <li><a href="terima.php">Daftar Mahasiswa</a></li>
-                    <?php endif ?>
+                    <?php
+                        if(isset($_SESSION['username'])){
+                            if(!isset($_SESSION['name'])){
+                                echo("<li><a href='regis.php'>Daftar Mahasiswa</a></li>");
+                            } else{
+                                if($_SESSION['bukti_pembayaran'] == ''){
+                                    echo("<li><a href='bayar.php'>Daftar Mahasiswa</a></li>");
+                                } else{
+                                    if($_SESSION['status'] == null){
+                                        echo("<li><a href='pending.php'>Daftar Mahasiswa</a></li>");
+                                    } else if($_SESSION['status'] == false){
+                                        echo("<li><a href='tolak.php'>Daftar Mahasiswa</a></li>");
+                                    } if($_SESSION['status'] == true){
+                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
+                                    }
+                                }
+                            }
+                            echo($_SESSION['username']);
+                            echo($_SESSION['name']);
+                            if($_SESSION['status'] == ''){
+                                echo("status null");
+                            } else {
+                                echo($_SESSION['status']);
+                            }
+                            echo($_SESSION['bukti_pembayaran']);
+                        } else {
+                            echo("<li><a href='login.php'>Daftar Mahasiswa</a></li>");
+                        }
+                    ?>
                     
-                    <li><a href="login.php">Daftar Mahasiswa</a></li>
+                    
                 </ul>
             </nav>
         </div>

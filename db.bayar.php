@@ -10,7 +10,7 @@ $bukti_pembayaran = "";
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
-if (isset($_POST['regis'])) {
+if (isset($_POST['bayar'])) {
 	register();
 }
 
@@ -43,7 +43,7 @@ function register(){
 			$results = mysqli_query($conn, $query);
 			echo($query);
 			echo("here3");
-            //header('location: terima.php');
+            header('location: terima.php');
         }
 							
 	}

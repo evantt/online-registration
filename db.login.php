@@ -40,17 +40,20 @@ function login(){
 
 	// login user if there are no errors in the form
 	if (count($errors) == 0) {
-        $sql_u = "SELECT * FROM siswa WHERE username='$username' AND password='$password'";
+        $sql_u = "SELECT name, bukti_pembayaran, status FROM siswa WHERE username='$username' AND password='$password'";
 		$res_u = mysqli_query($conn, $sql_u);
         if (mysqli_num_rows($res_u) != 1) {
             $name_error = "Username or Password is incorrect."; 		
         } else{
+			while($row = mysqli_fetch_array($res_u)){
+				$_SESSION['status'] = $row["status"];	
+				$_SESSION['bukti_pembayaran'] = $row["bukti_pembayaran"];	
+				$_SESSION['name'] = $row["name"];
+				$_SESSION['res'] = $res_u;
+			}
 			$_SESSION['valid'] = true;
-			//$_SESSION['timeout'] = time();
 			$_SESSION['username'] = $username;			
 			$_SESSION['password'] = $password;	
-			$_SESSION['status'] = $status;	
-			$_SESSION['bukti_pembayaran'] = $bukti_pembayaran;	
 			header('location: home.php');
         }						
 	}

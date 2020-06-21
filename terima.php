@@ -16,8 +16,8 @@
             require("Layout/header.php");
         ?> 
         
-        <?php if ($_SESSION['status'] == null || $_SESSION['status'] == false): ?>
-                    TUNGGU APPROVAL BANG
+        <?php if ($_SESSION['status']): ?>
+            echo("terima");
         <?php endif ?>
         
         <!-- NOTHINGGGGGGGGGGGG -->
