@@ -1,3 +1,4 @@
+<?php include('db.admin.php') ?>
 <!DOCTYPE html>
     <head>
         <title></title>
@@ -66,6 +67,22 @@
             </tbody>
         </table>
         </div> -->
+
+        
+        <?php
+            //kodingzzzzzzzz dari angkasazzzzzzz source nya confusing
+            $sql_u = "SELECT * FROM siswa;"; //WHERE username='$uname'";
+            $result = mysqli_query($conn, $sql_u);
+            $resultCheck = mysqli_num_rows($result);
+            if($resultCheck > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    echo implode(" ", $row) . "<br>";
+                }
+            }
+            
+        ?>
         <?php
             require("Layout/footer.php");
         ?> 
