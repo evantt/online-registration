@@ -25,7 +25,7 @@
         <div class="container" style="margin-top: 70px;">
             <div class="display-4" style="margin: 1rem; text-align: center">Daftar Sekarang</div>
 
-            <form method="post" action="db.bayar.php" id="regis_form">
+            <form method="post" action="db.bayar.php" id="regis_form" enctype="multipart/form-data">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>

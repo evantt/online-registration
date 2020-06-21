@@ -72,7 +72,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Kartu Keluarga &nbsp; <div style="color:red">*</div></span>
                     </div>
                     Select file to upload:
-                    <input type="file" name="kartu_keluarga" id="fileToUpload">
+                    <input type="file" name="kartu_keluarga" id="fileToUpload1">
                 </div>
 
                 <div class="input-group mb-3">
@@ -80,7 +80,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Nilai Rapor &nbsp; <div style="color:red">*</div></span>
                     </div>
                     Select file to upload:
-                    <input type="file" name="ijazah" id="fileToUpload">
+                    <input type="file" name="ijazah" id="fileToUpload2">
                 </div>  
  
                     

@@ -50,13 +50,11 @@ function register(){
     if (empty($ijazah)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
-	echo("here");
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$uname = $_SESSION['username'];
         $sql_u = "SELECT * FROM siswa WHERE username='$uname'";
         $res_u = mysqli_query($conn, $sql_u);
-		echo("here2");
         if (mysqli_num_rows($res_u) == 0) {
         	$name_error = "Belum Lengkap"; 		
         } else{
@@ -64,11 +62,17 @@ function register(){
 					kartu_keluarga = '$kartu_keluarga', ijazah = '$ijazah'
                     WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);
-			echo($query);
-			echo("here3");
-            header('location: bayar.php');
-        }
-							
+			$target_dir = "uploads/";
+			$target_file = $target_dir . basename($_FILES['kartu_keluarga']["name"]);
+
+			//$uploadOK = 1;
+			move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $target_file);
+			
+			echo "<pre>"; 
+			print_r($_FILES); 
+			echo "</pre>"; 
+            //header('location: bayar.php');
+        }			
 	}
 }
 
