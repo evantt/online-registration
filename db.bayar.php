@@ -37,15 +37,28 @@ function register(){
         	$name_error = "Belum Lengkap"; 		
         } else{
 			$target_dir = "uploads/";
-			$target_file = $target_dir . basename($_FILES["bukti_pembayaran"]["name"]);			
-            $query = "UPDATE siswa SET bukti_pembayaran = '$target_file'
+			$target_file = $target_dir . $uname . '_bukti_pembayaran';
+			$target_type = explode("/", $_FILES['bukti_pembayaran']['type'], 2);
+			$target = $target_file . "." . $target_type[1];
+            $query = "UPDATE siswa SET bukti_pembayaran = '$target'
                     WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);
 
-			//$uploadOK = 1;
-			move_uploaded_file($_FILES["bukti_pembayaran"]["tmp_name"], $target_file);
-			echo($target_file);
-            header('location: terima.php');
+			$uploadOK = 1;
+			
+			if(getimagesize($_FILES["bukti_pembayaran"]["tmp_name"]) == false){
+				$uploadOK = 0;
+			}
+
+			if($uploadOK == 0){
+				echo('<script>alert("Upload Failed");</script>');
+				echo('<script>location="bayar.php";</script>');
+			} else {
+				if(move_uploaded_file($_FILES["bukti_pembayaran"]["tmp_name"], $target)){
+					header('location: terima.php');
+				}
+			}
+
         }
 							
 	}

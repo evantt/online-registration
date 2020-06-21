@@ -9,8 +9,6 @@ $name = "";
 $phone_number = "";
 $email = "";
 $category = "";
-$kartu_keluarga = "";
-$ijazah = "";
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
@@ -29,8 +27,6 @@ function register(){
     $phone_number    =  e($_POST['phone_number']);
     $email    =  e($_POST['email']);
 	$category    =  e($_POST['category']);
-	$kartu_keluarga    =  e($_POST['kartu_keluarga']);
-	$ijazah = e($_POST['ijazah']);
 	// form validation: ensure that the form is correctly filled
 	if (empty($name)) { 
 		array_push($errors, "Belum Lengkap"); 
@@ -44,12 +40,6 @@ function register(){
     if (empty($category)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
-	if (empty($kartu_keluarga)) { 
-		array_push($errors, "Belum Lengkap"); 
-    }
-    if (empty($ijazah)) { 
-		array_push($errors, "Belum Lengkap"); 
-	}
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$uname = $_SESSION['username'];
@@ -58,20 +48,40 @@ function register(){
         if (mysqli_num_rows($res_u) == 0) {
         	$name_error = "Belum Lengkap"; 		
         } else{
-            $query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email',
-					kartu_keluarga = '$kartu_keluarga', ijazah = '$ijazah'
-                    WHERE username = '$uname'";
-			$results = mysqli_query($conn, $query);
 			$target_dir = "uploads/";
-			$target_file = $target_dir . basename($_FILES['kartu_keluarga']["name"]);
+			$kk_file = $target_dir . $uname . '_kartu_keluarga';
+			$ij_file = $target_dir . $uname . '_ijazah';
+			$kk_type = explode("/", $_FILES["kartu_keluarga"]["type"], 2);
+			$ij_type = explode("/", $_FILES["ijazah"]["type"], 2);
+			$kk = $kk_file . "." . $kk_type[1];
+			$ij = $ij_file . "." . $ij_type[1];
 
-			//$uploadOK = 1;
-			move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $target_file);
+			print_r($_FILES["ijazah"]["type"]);
+			print_r($_FILES["kartu_keluarga"]["type"]);
+
+			$uploadOK = 1;
 			
-			echo "<pre>"; 
-			print_r($_FILES); 
-			echo "</pre>"; 
-            //header('location: bayar.php');
+			if(getimagesize($_FILES["kartu_keluarga"]["tmp_name"]) == false || getimagesize($_FILES["ijazah"]["tmp_name"]) == false){
+				$uploadOK = 0;
+			}
+
+			if($uploadOK == 0){
+				echo('<script>alert("Upload Failed");</script>');
+				echo('<script>location="regis.php";</script>');
+			} else {
+				if(move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $kk) && move_uploaded_file($_FILES["ijazah"]["tmp_name"], $ij)){
+					$uploadOK = 1;
+				} else {
+					echo('<script>alert("Upload Failed");</script>');
+					echo('<script>location="regis.php";</script>');
+					$uploadOK = 0;
+				}
+			}
+			$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email',
+			kartu_keluarga = '$kk', ijazah = '$ij'
+			WHERE username = '$uname'";
+			$results = mysqli_query($conn, $query);			
+			header('location: bayar.php');
         }			
 	}
 }
