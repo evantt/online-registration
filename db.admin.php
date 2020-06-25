@@ -5,17 +5,50 @@ require "config.php";
 
 // Selecting Database
 // variable declaration
+
+/*
 $name = "";
 $phone_number = "";
 $email = "";
 $category = "";
 $kartu_keluarga = "";
 $ijazah = "";
+*/
+
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
+
+/*
 if (isset($_POST['regis'])) {
 	register();
+}
+*/
+
+if (isset($_POST['approve'])) {
+	approve();
+}
+if (isset($_POST['hapus'])) {
+	hapus();
+}
+
+function approve()
+{
+	global $conn, $errors, $username, $name_error;
+
+	$query = "UPDATE siswa SET status = true
+                    WHERE id = '$id'";
+	$results = mysqli_query($conn, $query);
+	$target_dir = "uploads/";
+	$target_file = $target_dir . basename($_FILES['kartu_keluarga']["name"]);
+
+	//$uploadOK = 1;
+	move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $target_file);
+			
+	echo "<pre>"; 
+	print_r($_FILES); 
+	echo "</pre>"; 
+    header('location: admin.php');
 }
 
 // REGISTER USER

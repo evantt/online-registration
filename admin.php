@@ -106,8 +106,8 @@
                 }
             }
         ?>
-        <input type="submit" value="Tekan untuk Approve Murid">
-        <input type="submit" value="Hapus Murid">
+        <input type="submit" value="Tekan untuk Approve Murid" name = "approve">
+        <input type="submit" value="Hapus Murid" name = "hapus">
         </form>
 
         <?php
