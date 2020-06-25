@@ -70,6 +70,7 @@
 
         
         <?php
+        /*
             //kodingzzzzzzzz dari angkasazzzzzzz source nya confusing
             $sql_u = "SELECT * FROM siswa;"; //WHERE username='$uname'";
             $result = mysqli_query($conn, $sql_u);
@@ -78,11 +79,37 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    echo implode(" ", $row) . "<br>";
+                    //echo implode(" ", $row) . "<br>";
+                    echo $row['username']."<br>";
                 }
             }
-            
+        */
         ?>
+
+        <form action="db.admin.php">
+        <?php
+            //kodingzzzzzzzz dari angkasazzzzzzz source nya confusing
+            $sql_u = "SELECT * FROM siswa;"; //WHERE username='$uname'";
+            $result = mysqli_query($conn, $sql_u);
+            $resultCheck = mysqli_num_rows($result);
+            if($resultCheck > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    //echo implode(" ", $row) . "<br>";
+                    echo $row['username']
+                    .
+                    '<input type = "checkbox" id = $row["id"] name = $row["id"] value = $row["id"]>'
+                    .
+                    '<br>'
+                    ;
+                }
+            }
+        ?>
+        <input type="submit" value="Tekan untuk Approve Murid">
+        <input type="submit" value="Hapus Murid">
+        </form>
+
         <?php
             require("Layout/footer.php");
         ?> 
