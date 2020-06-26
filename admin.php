@@ -72,10 +72,20 @@
                     <td><?php echo $row['bukti_pembayaran']; ?></td>
                     <td><?php echo $row['status']; ?></td>
                     <td>
-                        <a href="edit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+                    <form method="post" action="edit.php">
+                        <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
+                        <button class="edit_btn" name="edit">Update</button>
+                        <!-- <a href="edit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a> -->
+                    </form>
+                        
                     </td>
                     <td>
-                        <a href="db.admin.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+                    <form method="post" action="db.admin.php">
+                        <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
+                        <button class="del_btn" name="delete">Delete</button>
+                        <!-- <a href="edit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a> -->
+                    </form>                    
+                        <!-- <a href="db.admin.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a> -->
                     </td>
                 </tr>
             <?php } ?>

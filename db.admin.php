@@ -41,14 +41,17 @@ if (isset($_POST['update'])) {
 
 	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
 	$_SESSION['message'] = "Data updated!"; 
+	unset($_POST['update']);
 	header('location: admin.php');
 }
 
-if (isset($_POST['del'])) {
-	$id = $_POST['del'];
+
+if(isset($_POST['delete'])){
+	$id = $_REQUEST['id'];
 	mysqli_query($conn, "DELETE FROM siswa WHERE id=$id");
+	unset($_POST['delete']);
 	$_SESSION['message'] = "Data deleted!"; 
-	header('location: admin.php');
+	echo('<script>location="admin.php";</script>');
 }
 
 // function approve()
