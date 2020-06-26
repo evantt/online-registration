@@ -77,7 +77,7 @@ function register(){
 					$uploadOK = 0;
 				}
 			}
-			$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', email = '$email',
+			$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
 			kartu_keluarga = '$kk', ijazah = '$ij'
 			WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);			

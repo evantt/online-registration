@@ -28,7 +28,13 @@ function login(){
 	$username    =  e($_POST['username']);
 	$password    =  e($_POST['password']);
 	$status   =  e($_POST['status']);
-	$bukti_pembayaran    =  e($_POST['bukti_pembayaran']);
+	if($username == "admin" && $password == "admin"){
+		header('location: admin.php');
+	}
+	else{
+		$bukti_pembayaran    =  e($_POST['bukti_pembayaran']);
+	}
+	
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
@@ -54,7 +60,14 @@ function login(){
 			$_SESSION['valid'] = true;
 			$_SESSION['username'] = $username;			
 			$_SESSION['password'] = $password;	
-			header('location: home.php');
+
+			if($username == "admin" && $password == "admin"){
+				header('location: admin.php');
+			}
+			else
+			{
+				header('location: home.php');
+			}
         }						
 	}
 }
