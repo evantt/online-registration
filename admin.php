@@ -40,7 +40,9 @@
         <?php
             require("Layout/header.php");
             $results = mysqli_query($conn, "SELECT * FROM siswa");
+            echo '<br>';
         ?>
+        
         <?php if (isset($_SESSION['message'])): ?>
             <div class="msg">
                 <?php 
