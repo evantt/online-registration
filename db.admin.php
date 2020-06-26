@@ -45,7 +45,7 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['del'])) {
-	$id = $_POST['del'];
+	$id = $_POST['id'];
 	mysqli_query($conn, "DELETE FROM siswa WHERE id=$id");
 	$_SESSION['message'] = "Data deleted!"; 
 	header('location: admin.php');
