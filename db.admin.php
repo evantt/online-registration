@@ -37,18 +37,57 @@ if (isset($_POST['update'])) {
 	$name = $_POST['name'];
 	$phone_number = $_POST['phone_number'];
 	$email = $_POST['email'];
-	$status = $_POST['status'];
+	//$status = $_POST['status'];
 
+	//code angkaszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+	if($_POST['status'] == '1')
+	{
+		$status = true;
+		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
+		$_SESSION['message'] = "Data updated!"; 
+		unset($_POST['update']);
+		header('location: admin.php');
+	}
+	elseif($_POST['status'] == '2')
+	{
+		$status = false;
+		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
+		$_SESSION['message'] = "Data updated!"; 
+		unset($_POST['update']);
+		header('location: admin.php');
+	}
+	elseif($_POST['status'] == '3')
+	{
+		$status = null;
+		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
+		$_SESSION['message'] = "Data updated!"; 
+		unset($_POST['update']);
+		header('location: admin.php');
+	}
+	elseif($_POST['status'] == '0')
+	{
+		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', WHERE id=$id");
+		$_SESSION['message'] = "Data updated!"; 
+		unset($_POST['update']);
+		header('location: admin.php');
+	}
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA best boundaries thanks
+
+	/*
 	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
 	$_SESSION['message'] = "Data updated!"; 
+	unset($_POST['update']);
 	header('location: admin.php');
+	*/
 }
 
-if (isset($_POST['del'])) {
-	$id = $_POST['id'];
+
+if(isset($_POST['delete'])){
+	$id = $_REQUEST['id'];
 	mysqli_query($conn, "DELETE FROM siswa WHERE id=$id");
+	unset($_POST['delete']);
 	$_SESSION['message'] = "Data deleted!"; 
-	header('location: admin.php');
+	echo('<script>location="admin.php";</script>');
 }
 
 // function approve()

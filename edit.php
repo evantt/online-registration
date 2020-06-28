@@ -1,23 +1,16 @@
-<?php require "db.admin.php";
-    // if (isset($_REQUEST['id'])) {
-    //     $id = $_REQUEST['id'];
-    //     $update = true;
-    //     $record = mysqli_query($conn, "SELECT * FROM siswa WHERE id=$id");
+<?php require "config.php";
+    if (isset($_REQUEST['edit'])) {
+        $id = $_REQUEST['id'];
+        echo($id);
+        $update = true;
+        $result = mysqli_query($conn, "SELECT phone_number, id, username, name, address, email from siswa where id='".$id."'");
         
-    //     if (count($record) == 1 ) {
-    //         $n = mysqli_fetch_array($record);
-    //         $name = $n['name'];
-    //         $birthdate = $n['birthdate'];
-    //         $email = $n['email'];
-    //         $phone_number = $n['phone_number'];
-    //         $address = $n['address'];
-    //         $category = $n['category'];
-    //     }
-    // }
-    $id=$_REQUEST['edit'];
-    $query = "SELECT * from siswa where id='".$id."'"; 
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
+    }
+    // $id=$_REQUEST['edit'];
+    // $query = "SELECT id, username, name, address, email from siswa where id='".$id."'"; 
+    // $result = mysqli_query($conn, $query);
+    // $row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <style>
@@ -94,7 +87,7 @@
                         <label class="input-group-text" for="inputGroupSelect01">Status</label>
                      </div>
                     <select class="custom-select" id="inputGroupSelect01" name = "status">
-                        <option selected>Pilih...</option>
+                        <option value = "0" selected>Pilih...</option>
                         <option value="1">Terima</option>
                         <option value="2">Tolak</option>
                         <option value="3">Null</option>
