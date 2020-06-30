@@ -21,14 +21,14 @@
             echo("<div style='text-align:center; padding-top: 5rem; padding-bottom: 5rem'>");
             if($_SESSION['status'] == null)
             {
-                echo("Registrasi masih pending, mohon ditunggu.");
+                echo("Registrasi masih pending, mohon ditunggu. (っ^‿^)っ");
             } 
             elseif($_SESSION['status'] == false)
             {
-                echo("Maaf, Registrasi anda ditolak.");
+                echo("Maaf, Registrasi anda ditolak. (っ^‿^)っ");
             } 
             elseif($_SESSION['status'] == true){
-                echo("Selamat, Anda diterima.");
+                echo("Selamat, Anda diterima. (っ^‿^)っ");
             }
             echo("</div>");
         ?>
