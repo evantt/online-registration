@@ -54,7 +54,7 @@
         <table border="1">
             <thead>
                 <tr>
-                <th>Id.</th><th>Name</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Category</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Nilai Rapor</th><th>Status</th>
+                <th>Id.</th><th>Name</th><th>Kelas (SD)</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Category</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Nilai Rapor</th><th>Status</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -63,6 +63,13 @@
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
+                    <!-- CODING ANGKASA AAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+                    <td>
+                        <?php 
+                             echo ($row['category']);
+                        ?>
+                    </td>
+                    <!-- illya best girl -->
                     <td><?php echo $row['birthdate']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone_number']; ?></td>
@@ -76,17 +83,17 @@
                     <!-- PROGRAM ANGKASAAAAAAAAAAAAA -->
                     <td>
                         <?php 
-                            if($row['status'] == 1)
+                            if($row['status'] == true)
                             {
-                                echo 'Di terima';
+                                echo 'Di Terima';
                             }
-                            else if($row['status'] == 2)
+                            elseif($row['status'] == false)
                             {
-                                echo 'Di tolak';
+                                echo 'Di Tolak';
                             }
-                            else
+                            elseif($row['status'] == NULL)
                             {
-                                echo 'Pending...';
+                                echo 'NULL';
                             } 
                         ?>
                     </td>
