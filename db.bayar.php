@@ -54,9 +54,12 @@ function register(){
 				echo('<script>alert("Upload Failed");</script>');
 				echo('<script>location="bayar.php";</script>');
 			} else {
+				header('location: terima.php');
+				/*
 				if(move_uploaded_file($_FILES["bukti_pembayaran"]["tmp_name"], $target)){
 					header('location: terima.php');
 				}
+				*/
 			}
 
         }
