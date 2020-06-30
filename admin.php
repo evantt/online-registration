@@ -54,7 +54,7 @@
         <table border="1">
             <thead>
                 <tr>
-                <th>Id.</th><th>Name</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Category</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Status</th>
+                <th>Id.</th><th>Name</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Category</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Nilai Rapor</th><th>Status</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -70,7 +70,30 @@
                     <td><?php echo $row['category']; ?></td>
                     <td><?php echo $row['kartu_keluarga']; ?></td>
                     <td><?php echo $row['bukti_pembayaran']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
+                    <td><?php echo $row['ijazah']; ?></td>
+
+                    <!--<td><?php //echo $row['status']; ?></td>-->
+
+                    <!-- PROGRAM ANGKASAAAAAAAAAAAAA -->
+                    <td>
+                        <?php 
+                            if($row['status'] == '1')
+                            {
+                                echo 'Di Terima';
+                            }
+                            elseif($row['status'] == '2')
+                            {
+                                echo 'Di Tolak';
+                            }
+                            elseif($row['status'] == '3')
+                            {
+                                echo 'NULL';
+                            } 
+                        ?>
+                    </td>
+
+                    <!-- U THINK ITS ANOTHER ANGKASA? BUT ITS ME DIO DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+
                     <td>
                     <form method="post" action="edit.php">
                         <input type="hidden" value="<?php echo $row['id']; ?>" name="id">

@@ -87,7 +87,7 @@
                         <label class="input-group-text" for="inputGroupSelect01">Status</label>
                      </div>
                     <select class="custom-select" id="inputGroupSelect01" name = "status">
-                        <option selected>Pilih...</option>
+                        <option value = "0" selected>Pilih...</option>
                         <option value="1">Terima</option>
                         <option value="2">Tolak</option>
                         <option value="3">Null</option>
