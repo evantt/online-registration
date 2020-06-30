@@ -44,16 +44,16 @@ if (isset($_POST['update'])) {
 	//code angkaszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 	if($_POST['status'] == '1')
 	{
-		$status = true;
+		$status = 1;
 	}
 	elseif($_POST['status'] == '2')
 	{
-		$status = false;		
+		$status = 2;		
 
 	}
 	elseif($_POST['status'] == '3')
 	{
-		$status = null;
+		$status = 3;
 	}
 	elseif($_POST['status'] == '0')
 	{

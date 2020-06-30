@@ -76,17 +76,17 @@
                     <!-- PROGRAM ANGKASAAAAAAAAAAAAA -->
                     <td>
                         <?php 
-                            if($row['status'] == '1')
+                            if($row['status'] == 1)
                             {
-                                echo 'Di Terima';
+                                echo 'Di terima';
                             }
-                            elseif($row['status'] == false)
+                            else if($row['status'] == 2)
                             {
-                                echo 'Di Tolak';
+                                echo 'Di tolak';
                             }
-                            elseif($row['status'] == '')
+                            else
                             {
-                                echo 'NULL';
+                                echo 'Pending...';
                             } 
                         ?>
                     </td>
