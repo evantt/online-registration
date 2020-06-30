@@ -68,10 +68,9 @@
                     <td><?php echo $row['phone_number']; ?></td>
                     <td><?php echo $row['address']; ?></td>
                     <td><?php echo $row['category']; ?></td>
-                    <td><?php echo $row['kartu_keluarga']; ?></td>
-                    <td><?php echo $row['bukti_pembayaran']; ?></td>
-                    <td><?php echo $row['ijazah']; ?></td>
-
+                    <td><?php echo ("<a href='" . $row['kartu_keluarga'] . "'>" . $row['kartu_keluarga'] . "</a>"); ?></td>
+                    <td><?php echo ("<a href='" . $row['bukti_pembayaran'] . "'>" . $row['bukti_pembayaran'] . "</a>"); ?></td>
+                    <td><?php echo ("<a href='" . $row['ijazah'] . "'>" . $row['ijazah'] . "</a>"); ?></td>
                     <!--<td><?php //echo $row['status']; ?></td>-->
 
                     <!-- PROGRAM ANGKASAAAAAAAAAAAAA -->
@@ -81,11 +80,11 @@
                             {
                                 echo 'Di Terima';
                             }
-                            elseif($row['status'] == '2')
+                            elseif($row['status'] == false)
                             {
                                 echo 'Di Tolak';
                             }
-                            elseif($row['status'] == '3')
+                            elseif($row['status'] == '')
                             {
                                 echo 'NULL';
                             } 

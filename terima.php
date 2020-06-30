@@ -18,17 +18,19 @@
         
         <!-- ANGKASZZZZZZZZZZ -->
         <?php
+            echo("<div style='text-align:center; padding-top: 5rem; padding-bottom: 5rem'>");
             if($_SESSION['status'] == null)
             {
-                echo("Masih Tunggu");
+                echo("Registrasi masih pending, mohon ditunggu.");
             } 
             elseif($_SESSION['status'] == false)
             {
-                echo("Reject");
+                echo("Maaf, Registrasi anda ditolak.");
             } 
             elseif($_SESSION['status'] == true){
-                echo("Terima");
+                echo("Selamat, Anda diterima.");
             }
+            echo("</div>");
         ?>
         <!-- capek pls help -->
 

@@ -37,40 +37,36 @@ if (isset($_POST['update'])) {
 	$name = $_POST['name'];
 	$phone_number = $_POST['phone_number'];
 	$email = $_POST['email'];
+	$address    =  e($_POST['address']);
+	$birthdate    =  e($_POST['birthdate']);
 	//$status = $_POST['status'];
 
 	//code angkaszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 	if($_POST['status'] == '1')
 	{
 		$status = true;
-		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
-		$_SESSION['message'] = "Data updated!"; 
-		unset($_POST['update']);
-		header('location: admin.php');
 	}
 	elseif($_POST['status'] == '2')
 	{
-		$status = false;
-		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
-		$_SESSION['message'] = "Data updated!"; 
-		unset($_POST['update']);
-		header('location: admin.php');
+		$status = false;		
+
 	}
 	elseif($_POST['status'] == '3')
 	{
 		$status = null;
-		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
-		$_SESSION['message'] = "Data updated!"; 
-		unset($_POST['update']);
-		header('location: admin.php');
 	}
 	elseif($_POST['status'] == '0')
 	{
-		mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', WHERE id=$id");
-		$_SESSION['message'] = "Data updated!"; 
-		unset($_POST['update']);
-		header('location: admin.php');
+		// mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', WHERE id=$id");
+		// $_SESSION['message'] = "Data updated!"; 
+		// unset($_POST['update']);
+		// header('location: admin.php');
 	}
+
+	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', address = '$address', birthdate = '$birthdate', status='$status' WHERE id=$id");
+	$_SESSION['message'] = "Data updated!"; 
+	unset($_POST['update']);
+	header('location: admin.php');
 	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA best boundaries thanks
 
 	/*

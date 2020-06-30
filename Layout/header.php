@@ -23,22 +23,22 @@
                                     echo("<li><a href='bayar.php'>Daftar Mahasiswa</a></li>");
                                 } else{
                                     if($_SESSION['status'] == null){
-                                        echo("<li><a href='pending.php'>Daftar Mahasiswa</a></li>");
+                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
                                     } else if($_SESSION['status'] == false){
-                                        echo("<li><a href='tolak.php'>Daftar Mahasiswa</a></li>");
+                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
                                     } if($_SESSION['status'] == true){
                                         echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
                                     }
                                 }
                             }
-                            echo($_SESSION['username']);
-                            echo($_SESSION['name']);
-                            if($_SESSION['status'] == ''){
-                                echo("status null");
-                            } else {
-                                echo($_SESSION['status']);
-                            }
-                            echo($_SESSION['bukti_pembayaran']);
+                            // echo($_SESSION['username']);
+                            // echo($_SESSION['name']);
+                            // if($_SESSION['status'] == ''){
+                            //     echo("status null");
+                            // } else {
+                            //     echo($_SESSION['status']);
+                            // }
+                            //echo($_SESSION['bukti_pembayaran']);
                         } else {
                             echo("<li><a href='login.php'>Daftar Mahasiswa</a></li>");
                         }

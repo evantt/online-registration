@@ -3,7 +3,7 @@
         $id = $_REQUEST['id'];
         echo($id);
         $update = true;
-        $result = mysqli_query($conn, "SELECT phone_number, id, username, name, address, email from siswa where id='".$id."'");
+        $result = mysqli_query($conn, "SELECT phone_number, id, username, name, address, email, birthdate from siswa where id='$id'");
         
         $row = mysqli_fetch_assoc($result);
     }
@@ -64,6 +64,20 @@
                     </div>
                     <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email" value="<?php echo $row['email']; ?>">
                 </div>             
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Alamat Rumah &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "address" value="<?php echo $row['address']; ?>">
+                </div>       
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Tanggal Lahir &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    <input type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "birthdate" value="<?php echo $row['birthdate']; ?>">
+                </div>                          
 
                         
 

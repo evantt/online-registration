@@ -48,7 +48,21 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat E-mail &nbsp; <div style="color:red">*</div></span>
                     </div>
                     <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email">
-                </div>             
+                </div>   
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Alamat Rumah &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "address">
+                </div>       
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Tanggal Lahir &nbsp; <div style="color:red">*</div></span>
+                    </div>
+                    <input type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "birthdate">
+                </div>                                                 
 
                         
 

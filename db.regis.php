@@ -27,6 +27,8 @@ function register(){
     $phone_number    =  e($_POST['phone_number']);
     $email    =  e($_POST['email']);
 	$category    =  e($_POST['category']);
+	$address    =  e($_POST['address']);
+	$birthdate    =  e($_POST['birthdate']);
 	// form validation: ensure that the form is correctly filled
 	if (empty($name)) { 
 		array_push($errors, "Belum Lengkap"); 
@@ -38,6 +40,12 @@ function register(){
 		array_push($errors, "Belum Lengkap"); 
     }
     if (empty($category)) { 
+		array_push($errors, "Belum Lengkap"); 
+	}
+	if (empty($address)) { 
+		array_push($errors, "Belum Lengkap"); 
+	}
+	if (empty($birthdate)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
 	// register user if there are no errors in the form
@@ -78,7 +86,7 @@ function register(){
 				}
 			}
 			$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
-			kartu_keluarga = '$kk', ijazah = '$ij'
+			kartu_keluarga = '$kk', ijazah = '$ij', address = '$address', birthdate = '$birthdate'
 			WHERE username = '$uname'";
 			$results = mysqli_query($conn, $query);			
 			header('location: bayar.php');
