@@ -33,6 +33,24 @@
                 width: 50%;
                 text-align: center;
             }
+
+            footer hr{
+    border: 2px solid #34495E;
+    /* margin-top: 60px; */
+    /* width: 1000px; */
+}
+
+footer{
+    width: 1600px;
+}
+
+footer p{
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+    padding: 0px 0;
+}
+
         </style>
         <link rel="stylesheet" href="CSS/main.css">
     </head>
@@ -43,6 +61,10 @@
             echo '<br>';
         ?>
         
+        <center>
+        <h1>Admin</h1>
+        <center>
+
         <?php if (isset($_SESSION['message'])): ?>
             <div class="msg">
                 <?php 
@@ -161,8 +183,12 @@
         <input type="submit" value="Hapus Murid" name = "hapus"> -->
         </form>
 
-        <?php
+        <!-- <?php
             require("Layout/footer.php");
-        ?> 
+        ?>  -->
+        <footer>
+        <hr>
+        <p>&copy; 2020 KSA Copyright. All Rights Reserved.</p>
+    </footer>
     </body>
 </html>

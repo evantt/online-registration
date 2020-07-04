@@ -1,6 +1,6 @@
 <?php
    include('db.login.php');
-   session_start();
+   // session_start();
 ?>
 
 <?
@@ -16,7 +16,7 @@
       <link rel="stylesheet" href="CSS/main.css">
       <style>
          body {
-            padding-top: 40px;
+            padding-top: 0px;
             padding-bottom: 40px;
             background-color: white;
          }
