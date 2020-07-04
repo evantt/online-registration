@@ -1,6 +1,6 @@
 <?php
    include('db.login.php');
-   // session_start();
+   session_start();
 ?>
 
 <?
@@ -19,6 +19,7 @@
             padding-top: 0px;
             padding-bottom: 40px;
             background-color: white;
+            margin-top: -20px;
          }
          
          .form-signin {
