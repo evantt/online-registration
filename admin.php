@@ -105,15 +105,15 @@ footer p{
                     <!-- PROGRAM ANGKASAAAAAAAAAAAAA -->
                     <td>
                         <?php 
-                            if($row['status'] == true)
+                            if($row['status'] == 1)
                             {
                                 echo 'Di Terima';
                             }
-                            elseif($row['status'] == false)
+                            elseif($row['status'] == 2)
                             {
                                 echo 'Di Tolak';
                             }
-                            elseif($row['status'] == NULL)
+                            elseif($row['status'] == 3)
                             {
                                 echo 'NULL';
                             } 
