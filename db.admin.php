@@ -37,18 +37,56 @@ if (isset($_POST['update'])) {
 	$name = $_POST['name'];
 	$phone_number = $_POST['phone_number'];
 	$email = $_POST['email'];
-	$status = $_POST['status'];
+	$address    =  e($_POST['address']);
+	$category    =  e($_POST['category']);
+	$gender    =  e($_POST['gender']);
+	$birthdate    =  e($_POST['birthdate']);
+	//$status = $_POST['status'];
 
+	//code angkaszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+	if($_POST['status'] == '1')
+	{
+		$status = 1;
+	}
+	elseif($_POST['status'] == '2')
+	{
+		$status = 2;		
+
+	}
+	elseif($_POST['status'] == '3')
+	{
+		$status = 3;
+	}
+	elseif($_POST['status'] == '0')
+	{
+		// mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', WHERE id=$id");
+		// $_SESSION['message'] = "Data updated!"; 
+		// unset($_POST['update']);
+		// header('location: admin.php');
+	}
+
+	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', address = '$address', birthdate = '$birthdate', status='$status', gender = '$gender' WHERE id=$id");
+	$_SESSION['message'] = "Data updated!"; 
+	unset($_POST['update']);
+	header('location: admin.php');
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA best boundaries thanks
+
+	/*
 	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', status='$status' WHERE id=$id");
 	$_SESSION['message'] = "Data updated!"; 
+	unset($_POST['update']);
 	header('location: admin.php');
+	*/
 }
 
-if (isset($_POST['del'])) {
-	$id = $_POST['id'];
+
+if(isset($_POST['delete'])){
+	$id = $_REQUEST['id'];
 	mysqli_query($conn, "DELETE FROM siswa WHERE id=$id");
+	unset($_POST['delete']);
 	$_SESSION['message'] = "Data deleted!"; 
-	header('location: admin.php');
+	echo('<script>location="admin.php";</script>');
 }
 
 // function approve()

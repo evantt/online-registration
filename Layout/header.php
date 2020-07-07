@@ -1,4 +1,5 @@
-<?php 
+<?php
+    error_reporting(0);
     session_start();
 ?>
 
@@ -13,10 +14,38 @@
                     <li><a href="home.php">Home</a></li>
                     <li><a href="gallery.php">Gallery</a></li>
                     <li><a href="ctc.php">Contact</a></li>
-                    <?php if (isset($username)): ?>
-                    <li><a href="regis.php">Daftar Mahasiswa</a></li>
-                    <?php endif ?>
-                    <li><a href="login.php">Daftar Mahasiswa</a></li>
+
+                    <?php
+                        if(isset($_SESSION['username'])){
+                            if(!isset($_SESSION['name'])){
+                                echo("<li><a href='regis.php'>Daftar Siswa</a></li>");
+                            } else{
+                                if($_SESSION['bukti_pembayaran'] == ''){
+                                    echo("<li><a href='bayar.php'>Daftar Siswa</a></li>");
+                                } else{
+                                    if($_SESSION['status'] == null){
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                    } else if($_SESSION['status'] == false){
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                    } if($_SESSION['status'] == true){
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                    }
+                                }
+                            }
+                            // echo($_SESSION['username']);
+                            // echo($_SESSION['name']);
+                            // if($_SESSION['status'] == ''){
+                            //     echo("status null");
+                            // } else {
+                            //     echo($_SESSION['status']);
+                            // }
+                            //echo($_SESSION['bukti_pembayaran']);
+                        } else {
+                            echo("<li><a href='login.php'>Daftar Siswa</a></li>");
+                        }
+                    ?>
+                    
+                    
                 </ul>
             </nav>
         </div>
