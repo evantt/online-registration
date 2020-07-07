@@ -74,9 +74,15 @@
                         <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin &nbsp; <div style="color:red">*</div></label>
                      </div>
                     <select class="custom-select" id="inputGroupSelect01" name = "gender" value="<?php echo $_POST['gender']; ?>">
-                        <option selected>Pilih...</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
+                    <?php 
+                            if($_POST['gender'] == 1){
+                                echo("<option value='1' selected>Laki-laki</option>");
+                                echo("<option value='2'>Perempuan</option>");
+                            } else {
+                                echo("<option value='1'>Laki-laki</option>");
+                                echo("<option value='2' selected>Perempuan</option>");
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -85,13 +91,21 @@
                         <label class="input-group-text" for="inputGroupSelect01">Kelas &nbsp; <div style="color:red">*</div></label>
                      </div>
                     <select class="custom-select" id="inputGroupSelect01" name = "category" value="<?php echo $_POST['category']; ?>">
-                        <option selected>Pilih...</option>
+                    <?php 
+                        $array2 = array("Pilih..", "I - SD", "II - SD", "III - SD", "IV - SD", "V - SD", "VI - SD"); 
+                        for($i = 0; $i <= 6; $i++){
+                            echo("<option value='$i'");
+                            if($_POST['category'] == $i) echo(" selected");
+                            echo(">$array2[$i]</option>");
+                        }
+                    ?>
+                        <!-- <option selected>Pilih...</option>
                         <option value="1">I - SD</option>
                         <option value="2">II - SD</option>
                         <option value="3">III - SD</option>
                         <option value="4">IV - SD</option>
                         <option value="5">V - SD</option>
-                        <option value="6">VI - SD</option>
+                        <option value="6">VI - SD</option> -->
                     </select>
                 </div>
 

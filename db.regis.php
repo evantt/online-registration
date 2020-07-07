@@ -37,7 +37,7 @@ function register(){
 	if (empty($phone_number)) { 
 		array_push($errors, "Belum Lengkap"); 
     }
-    if (! isset($error_message)) {
+    if (!isset($error_message)) {
 		if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 			array_push($errors, "Format Email tidak sesuai");
 		} 
@@ -83,7 +83,7 @@ function register(){
 			}
 
 			if($uploadOK == 0){
-				echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+				echo('<script>alert("Upload gagal karena satu atau beberapa hal1");</script>');
 				unset($_POST['regis']);
 			} else {
 				if(move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $kk) && move_uploaded_file($_FILES["ijazah"]["tmp_name"], $ij)){
@@ -93,13 +93,13 @@ function register(){
 					$results = mysqli_query($conn, $query);			
 					header('location: bayar.php');
 				} else {
-					echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+					echo('<script>alert("Upload gagal karena satu atau beberapa hal2");</script>');
 					unset($_POST['regis']);
 				}
 			}
         }			
 	} else {
-		echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+		echo('<script>alert("Upload gagal karena satu atau beberapa hal3");</script>');
 		unset($_POST['regis']);
 	}
 }

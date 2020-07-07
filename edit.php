@@ -3,7 +3,7 @@
         $id = $_REQUEST['id'];
         echo($id);
         $update = true;
-        $result = mysqli_query($conn, "SELECT phone_number, id, username, name, address, email, birthdate from siswa where id='$id'");
+        $result = mysqli_query($conn, "SELECT phone_number, id, username, name, address, email, birthdate, gender, status from siswa where id='$id'");
         
         $row = mysqli_fetch_assoc($result);
     }
@@ -83,10 +83,16 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin &nbsp; <div style="color:red">*</div></label>
                      </div>
-                    <select class="custom-select" id="inputGroupSelect01" name = "gender" value="<?php echo $_POST['gender']; ?>">
-                        <option selected>Pilih...</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
+                    <select class="custom-select" id="inputGroupSelect01" name = "gender" value="<?php echo $row['gender']; ?>">
+                        <?php 
+                            if($row['gender'] == 1){
+                                echo("<option value='1' selected>Laki-laki</option>");
+                                echo("<option value='2'>Perempuan</option>");
+                            } else {
+                                echo("<option value='1'>Laki-laki</option>");
+                                echo("<option value='2' selected>Perempuan</option>");
+                            }
+                        ?>
                     </select>
                 </div>        
 
@@ -110,10 +116,18 @@
                         <label class="input-group-text" for="inputGroupSelect01">Status</label>
                      </div>
                     <select class="custom-select" id="inputGroupSelect01" name = "status">
-                        <option value = "0" selected>Pilih...</option>
+                        <?php 
+                                $array = array("Pilih..", "Terima", "Tolak", "Null"); 
+                                for($i = 0; $i <= 3; $i++){
+                                    echo("<option value='$i'");
+                                    if($row['status'] == $i) echo(" selected");
+                                    echo(">$array[$i]</option>");
+                                }
+                        ?>
+                        <!-- <option value = "0" selected>Pilih...</option>
                         <option value="1">Terima</option>
                         <option value="2">Tolak</option>
-                        <option value="3">Null</option>
+                        <option value="3">Null</option> -->
                     </select>
                 </div>
 

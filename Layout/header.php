@@ -41,7 +41,7 @@
                             // }
                             //echo($_SESSION['bukti_pembayaran']);
                         } else {
-                            echo("<li><a href='login.php'>Daftar Mahasiswa</a></li>");
+                            echo("<li><a href='login.php'>Daftar Siswa</a></li>");
                         }
                     ?>
                     
