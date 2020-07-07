@@ -1,4 +1,7 @@
-<?php /*include('db.regis.php') */ ?>
+<?php 
+    error_reporting(0);
+    include('db.regis.php');
+?>
 <!DOCTYPE html>
 <style>
 .form_error span {
@@ -23,7 +26,7 @@
         <div class="container" style="margin-top: 70px;">
             <div class="display-4" style="margin: 1rem; text-align: center">Daftar Sekarang</div>
 
-            <form method="post" action="db.regis.php" id="regis_form" enctype="multipart/form-data">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="regis_form" enctype="multipart/form-data">
 
             <?php /* echo display_error(); */ ?>
 
@@ -31,14 +34,14 @@
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Nama Lengkap &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "name">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "name" value="<?php echo $_POST['name']; ?>">
                 </div>
                 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend"  <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  (Dengan Kode Area) &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $_POST['phone_number']; ?>">
                 </div>  
 
                 
@@ -47,21 +50,21 @@
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat E-mail &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email" value="<?php echo $_POST['email']; ?>">
                 </div>   
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat Rumah &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "address">
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "address" value="<?php echo $_POST['address']; ?>">
                 </div>       
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Tanggal Lahir &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "birthdate">
+                    <input type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "birthdate" value="<?php echo $_POST['birthdate']; ?>">
                 </div>                                                 
 
                         
@@ -70,7 +73,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
                      </div>
-                    <select class="custom-select" id="inputGroupSelect01" name = "category">
+                    <select class="custom-select" id="inputGroupSelect01" name = "category" value="<?php echo $_POST['category']; ?>">
                         <option selected>Pilih...</option>
                         <option value="1">I - SD</option>
                         <option value="2">II - SD</option>
@@ -86,7 +89,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Kartu Keluarga &nbsp; <div style="color:red">*</div></span>
                     </div>
                     Select file to upload:
-                    <input type="file" name="kartu_keluarga" id="fileToUpload1">
+                    <input type="file" name="kartu_keluarga" id="fileToUpload1" value="<?php echo $_POST['kartu_keluarga']; ?>">
                 </div>
 
                 <div class="input-group mb-3">
@@ -94,7 +97,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Nilai Rapor &nbsp; <div style="color:red">*</div></span>
                     </div>
                     Select file to upload:
-                    <input type="file" name="ijazah" id="fileToUpload2">
+                    <input type="file" name="ijazah" id="fileToUpload2" value="<?php echo $_POST['ijazah']; ?>">
                 </div>  
  
                     

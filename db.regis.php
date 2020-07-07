@@ -54,7 +54,10 @@ function register(){
         $sql_u = "SELECT * FROM siswa WHERE username='$uname'";
         $res_u = mysqli_query($conn, $sql_u);
         if (mysqli_num_rows($res_u) == 0) {
-        	$name_error = "Belum Lengkap"; 		
+			echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+			unset($_POST['regis']);
+			return 0;
+        	//$name_error = "Belum Lengkap"; 		
         } else{
 			$target_dir = "uploads/";
 			$kk_file = $target_dir . $uname . '_kartu_keluarga';
@@ -64,8 +67,8 @@ function register(){
 			$kk = $kk_file . "." . $kk_type[1];
 			$ij = $ij_file . "." . $ij_type[1];
 
-			print_r($_FILES["ijazah"]["type"]);
-			print_r($_FILES["kartu_keluarga"]["type"]);
+			// print_r($_FILES["ijazah"]["type"]);
+			// print_r($_FILES["kartu_keluarga"]["type"]);
 
 			$uploadOK = 1;
 			
@@ -74,8 +77,8 @@ function register(){
 			}
 
 			if($uploadOK == 0){
-				echo('<script>alert("Upload Failed");</script>');
-				echo('<script>location="regis.php";</script>');
+				echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+				unset($_POST['regis']);
 			} else {
 				if(move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $kk) && move_uploaded_file($_FILES["ijazah"]["tmp_name"], $ij)){
 					$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
@@ -84,11 +87,14 @@ function register(){
 					$results = mysqli_query($conn, $query);			
 					header('location: bayar.php');
 				} else {
-					echo('<script>alert("Upload Failed");</script>');
-					echo('<script>location="regis.php";</script>');
+					echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+					unset($_POST['regis']);
 				}
 			}
         }			
+	} else {
+		echo('<script>alert("Upload gagal karena satu atau beberapa hal");</script>');
+		unset($_POST['regis']);
 	}
 }
 

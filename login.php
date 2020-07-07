@@ -1,4 +1,5 @@
 <?php
+   error_reporting(0);
    include('db.login.php');
    session_start();
 ?>
@@ -92,10 +93,10 @@
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
             <div style = "font-size: 22px; color : black;">Username : </div>
             <input type = "text" class = "form-control" 
-               name = "username" style = "border-color: black;"></br>
+               name = "username" style = "border-color: black;"value="<?php echo $_POST['username']; ?>"></br>
                <div style = "font-size: 22px; color : black;">Password : </div>
             <input type = "password" class = "form-control"
-               name = "password">
+               name = "password" value="<?php echo $_POST['password']; ?>">
             <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
                name = "login">Login</button>
          </form>

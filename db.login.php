@@ -49,7 +49,8 @@ function login(){
         $sql_u = "SELECT name, bukti_pembayaran, status FROM siswa WHERE username='$username' AND password='$password'";
 		$res_u = mysqli_query($conn, $sql_u);
         if (mysqli_num_rows($res_u) != 1) {
-            $name_error = "Username or Password is incorrect."; 		
+			echo('<script>alert("Username atau password salah");</script>');
+			unset($_POST['login']); 		
         } else{
 			while($row = mysqli_fetch_array($res_u)){
 				$_SESSION['status'] = $row["status"];	
@@ -69,6 +70,9 @@ function login(){
 				header('location: home.php');
 			}
         }						
+	} else {
+		echo('<script>alert("Username atau password salah");</script>');
+		unset($_POST['login']); 		
 	}
 }
 
