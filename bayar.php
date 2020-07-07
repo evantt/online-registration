@@ -27,6 +27,12 @@
 
             <form method="post" action="db.bayar.php" id="regis_form" enctype="multipart/form-data">
 
+                <div style="display: flex">
+                    Transfer sebesar Rp. 500.000 ke rekening BCA: &nbsp; <div style="font-weight: bold;"> 4392 1290 3943 </div>  &nbsp; (a.n. Abc)
+                </div>
+
+                <br>
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Bukti Bayar &nbsp; <div style="color:red">*</div></span>

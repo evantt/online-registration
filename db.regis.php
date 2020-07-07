@@ -78,18 +78,16 @@ function register(){
 				echo('<script>location="regis.php";</script>');
 			} else {
 				if(move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $kk) && move_uploaded_file($_FILES["ijazah"]["tmp_name"], $ij)){
-					$uploadOK = 1;
+					$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
+					kartu_keluarga = '$kk', ijazah = '$ij', address = '$address', birthdate = '$birthdate'
+					WHERE username = '$uname'";
+					$results = mysqli_query($conn, $query);			
+					header('location: bayar.php');
 				} else {
 					echo('<script>alert("Upload Failed");</script>');
 					echo('<script>location="regis.php";</script>');
-					$uploadOK = 0;
 				}
 			}
-			$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
-			kartu_keluarga = '$kk', ijazah = '$ij', address = '$address', birthdate = '$birthdate'
-			WHERE username = '$uname'";
-			$results = mysqli_query($conn, $query);			
-			header('location: bayar.php');
         }			
 	}
 }

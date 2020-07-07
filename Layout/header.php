@@ -17,17 +17,17 @@
                     <?php
                         if(isset($_SESSION['username'])){
                             if(!isset($_SESSION['name'])){
-                                echo("<li><a href='regis.php'>Daftar Mahasiswa</a></li>");
+                                echo("<li><a href='regis.php'>Daftar Siswa</a></li>");
                             } else{
                                 if($_SESSION['bukti_pembayaran'] == ''){
-                                    echo("<li><a href='bayar.php'>Daftar Mahasiswa</a></li>");
+                                    echo("<li><a href='bayar.php'>Daftar Siswa</a></li>");
                                 } else{
                                     if($_SESSION['status'] == null){
-                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
                                     } else if($_SESSION['status'] == false){
-                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
                                     } if($_SESSION['status'] == true){
-                                        echo("<li><a href='terima.php'>Daftar Mahasiswa</a></li>");
+                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
                                     }
                                 }
                             }
