@@ -24,11 +24,11 @@
             {
                 echo("Registrasi masih pending, mohon ditunggu. (っ^‿^)っ");
             } 
-            elseif($_SESSION['status'] == false)
+            elseif($_SESSION['status'] == 2)
             {
                 echo("Maaf, Registrasi anda ditolak. (っ^‿^)っ");
             } 
-            elseif($_SESSION['status'] == true){
+            elseif($_SESSION['status'] == 1){
                 echo("Selamat, Anda diterima. (っ^‿^)っ");
             }
             echo("</div>");

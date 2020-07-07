@@ -27,6 +27,7 @@ function register(){
     $phone_number    =  e($_POST['phone_number']);
     $email    =  e($_POST['email']);
 	$category    =  e($_POST['category']);
+	$gender    =  e($_POST['gender']);
 	$address    =  e($_POST['address']);
 	$birthdate    =  e($_POST['birthdate']);
 	// form validation: ensure that the form is correctly filled
@@ -36,10 +37,15 @@ function register(){
 	if (empty($phone_number)) { 
 		array_push($errors, "Belum Lengkap"); 
     }
-    if (empty($email)) { 
-		array_push($errors, "Belum Lengkap"); 
+    if (! isset($error_message)) {
+		if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+			array_push($errors, "Format Email tidak sesuai");
+		} 
     }
     if (empty($category)) { 
+		array_push($errors, "Belum Lengkap"); 
+	}
+    if (empty($gender)) { 
 		array_push($errors, "Belum Lengkap"); 
 	}
 	if (empty($address)) { 
@@ -81,7 +87,7 @@ function register(){
 				unset($_POST['regis']);
 			} else {
 				if(move_uploaded_file($_FILES["kartu_keluarga"]["tmp_name"], $kk) && move_uploaded_file($_FILES["ijazah"]["tmp_name"], $ij)){
-					$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', email = '$email',
+					$query = "UPDATE siswa SET name = '$name', phone_number = '$phone_number', category = '$category', gender = '$gender', email = '$email',
 					kartu_keluarga = '$kk', ijazah = '$ij', address = '$address', birthdate = '$birthdate'
 					WHERE username = '$uname'";
 					$results = mysqli_query($conn, $query);			

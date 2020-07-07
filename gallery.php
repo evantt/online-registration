@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title></title>
+        <title>Gallery</title>
         <style>
             /* .container{
                 padding: 10px;

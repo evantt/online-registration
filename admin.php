@@ -76,7 +76,7 @@ footer p{
         <table border="1">
             <thead>
                 <tr>
-                <th>Id.</th><th>Name</th><th>Kelas (SD)</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Category</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Nilai Rapor</th><th>Status</th>
+                <th>Id.</th><th>Name</th><th>Birthdate</th><th>Email</th><th>Phone</th><th>Address</th><th>Gender</th><th>Kelas (SD)</th><th>Kartu Keluarga</th><th>Bukti Pembayaran</th><th>Nilai Rapor</th><th>Status</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -86,17 +86,53 @@ footer p{
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <!-- CODING ANGKASA AAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-                    <td>
-                        <?php 
-                             echo ($row['category']);
-                        ?>
-                    </td>
                     <!-- illya best girl -->
                     <td><?php echo $row['birthdate']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone_number']; ?></td>
                     <td><?php echo $row['address']; ?></td>
-                    <td><?php echo $row['category']; ?></td>
+                    <!-- <td><?php echo $row['gender']; ?></td> -->
+                    <td>
+                        <?php 
+                            if($row['gender'] == 1)
+                            {
+                                echo 'Laki-laki';
+                            }
+                            elseif($row['gender'] == 2)
+                            {
+                                echo 'Perempuan';
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row['category'] == 1)
+                            {
+                                echo 'I - SD';
+                            }
+                            elseif($row['category'] == 2)
+                            {
+                                echo 'II - SD';
+                            }
+                            elseif($row['category'] == 3)
+                            {
+                                echo 'III - SD';
+                            }
+                            elseif($row['category'] == 4)
+                            {
+                                echo 'IV - SD';
+                            }
+                            elseif($row['category'] == 5)
+                            {
+                                echo 'V - SD';
+                            }
+                            elseif($row['category'] == 6)
+                            {
+                                echo 'VI - SD';
+                            }
+                        ?>
+                    </td>
+                    <!-- <td><?php echo $row['category']; ?></td> -->
                     <td><?php echo ("<a href='" . $row['kartu_keluarga'] . "'>" . $row['kartu_keluarga'] . "</a>"); ?></td>
                     <td><?php echo ("<a href='" . $row['bukti_pembayaran'] . "'>" . $row['bukti_pembayaran'] . "</a>"); ?></td>
                     <td><?php echo ("<a href='" . $row['ijazah'] . "'>" . $row['ijazah'] . "</a>"); ?></td>

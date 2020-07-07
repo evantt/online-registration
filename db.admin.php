@@ -38,10 +38,13 @@ if (isset($_POST['update'])) {
 	$phone_number = $_POST['phone_number'];
 	$email = $_POST['email'];
 	$address    =  e($_POST['address']);
+	$category    =  e($_POST['category']);
+	$gender    =  e($_POST['gender']);
 	$birthdate    =  e($_POST['birthdate']);
 	//$status = $_POST['status'];
 
 	//code angkaszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
 	if($_POST['status'] == '1')
 	{
 		$status = 1;

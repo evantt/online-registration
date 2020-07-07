@@ -26,7 +26,7 @@
     }
 </style>
     <head>
-        <title>Contact</title>
+        <title>Edit</title>
         <link rel="stylesheet" href="CSS/bootstrap.css">
         <link rel="stylesheet" href="CSS/main.css">
     </head>
