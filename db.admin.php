@@ -66,7 +66,7 @@ if (isset($_POST['update'])) {
 		// header('location: admin.php');
 	}
 
-	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', address = '$address', birthdate = '$birthdate', status='$status' WHERE id=$id");
+	mysqli_query($conn, "UPDATE siswa SET name='$name', phone_number='$phone_number', email='$email', address = '$address', birthdate = '$birthdate', status='$status', gender = '$gender' WHERE id=$id");
 	$_SESSION['message'] = "Data updated!"; 
 	unset($_POST['update']);
 	header('location: admin.php');

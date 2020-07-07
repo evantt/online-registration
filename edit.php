@@ -79,7 +79,16 @@
                     <input type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "birthdate" value="<?php echo $row['birthdate']; ?>">
                 </div>                          
 
-                        
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin &nbsp; <div style="color:red">*</div></label>
+                     </div>
+                    <select class="custom-select" id="inputGroupSelect01" name = "gender" value="<?php echo $_POST['gender']; ?>">
+                        <option selected>Pilih...</option>
+                        <option value="1">Laki-laki</option>
+                        <option value="2">Perempuan</option>
+                    </select>
+                </div>        
 
                 <!-- <div class="input-group mb-3">
                     <div class="input-group-prepend">
