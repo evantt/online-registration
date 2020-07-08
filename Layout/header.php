@@ -21,14 +21,14 @@
                                 echo("<li><a href='regis.php'>Daftar Siswa</a></li>");
                             } else{
                                 if($_SESSION['bukti_pembayaran'] == ''){
-                                    echo("<li><a href='bayar.php'>Daftar Siswa</a></li>");
+                                    echo("<li><a href='bayar.php'>Lanjut Daftar Siswa</a></li>");
                                 } else{
                                     if($_SESSION['status'] == null){
-                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
                                     } else if($_SESSION['status'] == false){
-                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
                                     } if($_SESSION['status'] == true){
-                                        echo("<li><a href='terima.php'>Daftar Siswa</a></li>");
+                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
                                     }
                                 }
                             }

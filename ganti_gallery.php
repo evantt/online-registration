@@ -14,6 +14,9 @@
     .form_error input {
         border: 1px solid #D83D5A;
     }
+    img {
+        margin-left: 20%;
+    }
 </style>
     <head>
         <title>Ganti</title>
@@ -49,13 +52,13 @@
         <?php 
             
 
-            $query = "SELECT * FROM gallery";
+            $query = "SELECT photo1 FROM gallery";
             $result = mysqli_query($conn, $query);
 
             echo("Galeri Foto<br>");
             
             while($row = mysqli_fetch_array($result)){
-                echo("<img src='" . 'gallery\\' . $row['photo1'] . "' style='max-width: 200px'>");
+                echo("<img src='" . $row['photo1'] . "' style='max-width: 200px'>");
                 //echo($row['caption']);
                 echo("<br>");
             }
@@ -67,11 +70,6 @@
 
             <?php /* echo display_error(); */ ?>
 
-                
-
-          
- 
-                    
                 <button class="btn btn-primary" name="reset">reset</button>                           
             </form>
         

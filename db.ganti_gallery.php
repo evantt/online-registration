@@ -43,13 +43,11 @@ function register(){
 //$errors   = array(); 
 if (isset($_POST['regis'])) {
 	//register();
-	$target_dir = "gallery/";
-		$target_file = $target_dir.$_FILES['foto']['name'];
-				
-        $target_type = explode("/", $_FILES['foto']['type'], 2);
-        $target = $target_file;
+	    $target_dir = "gallery/";
+        $target_file = $target_dir . $_FILES['foto']['name'];
+        
         //$caption = $_POST['caption'];
-        $query = "INSERT INTO gallery VALUES ('$target')";
+        $query = "INSERT INTO gallery VALUES ('$target_file')";
         echo($query);
         $results = mysqli_query($conn, $query);
 
@@ -60,7 +58,7 @@ if (isset($_POST['regis'])) {
             $status = 0;
         }
 
-        if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target))
+        if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file))
         {
             header('location: ganti_gallery.php');
         }
