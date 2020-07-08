@@ -35,6 +35,7 @@
 
 <div class="container" style="margin-top: 70px;">
     <div class="display-4" style="margin: 1rem; text-align: center">Update</div>
+
     
     <form method="post" action="db.admin.php" id="regis_form" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -54,6 +55,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  (Dengan Kode Area) &nbsp; <div style="color:red">*</div></span>
                     </div>
                     <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $row['phone_number']; ?>">
+
                 </div>  
 
                 
@@ -63,6 +65,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat E-mail &nbsp; <div style="color:red">*</div></span>
                     </div>
                     <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email" value="<?php echo $row['email']; ?>">
+
                 </div>             
 
                 <div class="input-group mb-3">

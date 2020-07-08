@@ -42,6 +42,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  &nbsp; <div style="color:red">*</div></span>
                     </div>
                     <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $_POST['phone_number']; ?>">
+
                 </div>  
 
                 
