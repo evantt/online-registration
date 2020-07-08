@@ -34,7 +34,8 @@
         <?php require("Layout\\header.php"); ?> 
 
 <div class="container" style="margin-top: 70px;">
-    <div class="display-4" style="margin: 1rem; text-align: center">Daftar Sekarang</div>
+    <div class="display-4" style="margin: 1rem; text-align: center">Update</div>
+
     
     <form method="post" action="db.admin.php" id="regis_form" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -53,7 +54,8 @@
                     <div class="input-group-prepend"  <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  (Dengan Kode Area) &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $row['phone_number']; ?>">
+                    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $row['phone_number']; ?>">
+
                 </div>  
 
                 
@@ -62,7 +64,8 @@
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">Alamat E-mail &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email" value="<?php echo $row['email']; ?>">
+                    <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "email" value="<?php echo $row['email']; ?>">
+
                 </div>             
 
                 <div class="input-group mb-3">

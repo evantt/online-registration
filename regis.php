@@ -41,7 +41,8 @@
                     <div class="input-group-prepend"  <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
                         <span class="input-group-text" id="inputGroup-sizing-default">No. Telepon Rumah  &nbsp; <div style="color:red">*</div></span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $_POST['phone_number']; ?>">
+                    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "phone_number" value="<?php echo $_POST['phone_number']; ?>">
+
                 </div>  
 
                 
