@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    require "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@
             margin-left: 100px;
             max-width: 1000px;
             position: relative;
-            /* margin: auto; */
+            margin: auto;
             }
 
             /* Hide the images by default */
@@ -163,13 +164,21 @@
         <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="https://3.bp.blogspot.com/_GDx7sQCkliY/SaNBiUQEp0I/AAAAAAAAAQ4/TvabMd8icAQ/w1200-h630-p-k-no-nu/1991+Fisika.jpg" style="width:100%;height:600px;">
-        <div class="text" style = "color: black; background-color: white;">Sekolah Hang Kesturi</div>
-        </div>
+        <?php 
+            $res = mysqli_query($conn, "SELECT text, photo FROM home;");
+            $row = mysqli_fetch_assoc($res);
+            for($i = 1; $i <= mysqli_num_rows($res); $i++){
+                echo('<div class="mySlides fade">');
+                echo('<div class="numbertext">$i / mysqli_num_rows($res)</div>');
+                echo('<img src="$row["photo"]" style="width:100%;height:600px;">');
+                echo('<div class="text" style = "color: black; background-color: white;">$row["text"]</div>');
+                echo('</div>');
+            }
+        ?>
+        
+        
 
-        <div class="mySlides fade">
+        <!-- <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
         <img src="https://www.jurnalasia.com/wp-content/uploads/2014/08/FOTO-HL1.jpg" style="width:100%;height:600px;">
         <div class="text" style = "color: black; background-color: white;">Mahasiswa Hang Kesturi 2015</div>
@@ -179,7 +188,7 @@
         <div class="numbertext">3 / 3</div>
         <img src="https://4.bp.blogspot.com/_VlqC-HRuwYY/SgYl6xRYTKI/AAAAAAAAB0Y/pHQzjsBxLg0/s400/alumni-HK-jadul.jpg" style="width:100%;height:600px;">
         <div class="text" style = "color: black; background-color: white;">SD Hang Kesturi</div>
-        </div>
+        </div> -->
 
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -194,7 +203,6 @@
         <span class="dot" onclick="currentSlide(3)"></span>
         </div>
         <!-- NOTHINGGGGGGGGGGGG -->
-        
         <div style = "text-align: center; font-size: 35px;">
             <br>SEKOLAH HANG KESTURI MEDAN 2020<hr width = "300px">
         </div>
