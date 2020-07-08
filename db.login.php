@@ -29,7 +29,7 @@ function login(){
 	$password    =  e($_POST['password']);
 	$status   =  e($_POST['status']);
 	if($username == "admin" && $password == "admin"){
-		header('location: admin.php');
+		header('location: pilih.php');
 	}
 	else{
 		$bukti_pembayaran    =  e($_POST['bukti_pembayaran']);
@@ -63,7 +63,7 @@ function login(){
 			$_SESSION['password'] = $password;	
 
 			if($username == "admin" && $password == "admin"){
-				header('location: admin.php');
+				header('location: pilih.php');
 			}
 			else
 			{
