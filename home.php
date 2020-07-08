@@ -58,8 +58,6 @@
 
             /* Slideshow container */
             .slideshow-container {
-            margin-top: 100px;
-            margin-left: 100px;
             max-width: 1000px;
             position: relative;
             margin: auto;
@@ -165,14 +163,15 @@
 
         <!-- Full-width images with number and caption text -->
         <?php 
+            $cnt = 1;
             $res = mysqli_query($conn, "SELECT text, photo FROM home;");
-            $row = mysqli_fetch_assoc($res);
-            for($i = 1; $i <= mysqli_num_rows($res); $i++){
+            while ($row = mysqli_fetch_array($res)) {
                 echo('<div class="mySlides fade">');
-                echo('<div class="numbertext">$i / mysqli_num_rows($res)</div>');
-                echo('<img src="$row["photo"]" style="width:100%;height:600px;">');
-                echo('<div class="text" style = "color: black; background-color: white;">$row["text"]</div>');
+                echo('<div class="numbertext">' . $cnt . '/' . mysqli_num_rows($res) . '</div>');
+                echo("<img src='" . $row['photo'] . "' style='width:100%; height:600px;'>");
+                echo("<div class='text' style = 'color: black; background-color: white;'>" . $row['text'] . "</div>");
                 echo('</div>');
+                $cnt = $cnt + 1;
             }
         ?>
         
@@ -198,9 +197,11 @@
 
         <!-- The dots/circles -->
         <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <?php 
+            for($i = 1; $i < $cnt; $i++){
+                echo("<span class='dot' onclick='currentSlide(" . $i . ")'></span>");
+            }
+        ?>
         </div>
         <!-- NOTHINGGGGGGGGGGGG -->
         <div style = "text-align: center; font-size: 35px;">
