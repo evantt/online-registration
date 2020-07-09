@@ -1,95 +1,29 @@
 <?php 
 session_start();
 require "config.php";
-// connect to database
-// $db = mysqli_connect('localhost', 'root', '', 'multi_login');
 
-// variable declaration
-$name = "";
-$phone_number = "";
-$email = "";
-$category = "";
-$errors   = array(); 
-if (isset($_POST['reset'])) {
-	register();
+$errors = array();
+
+if (isset($_POST['add'])) {
+	$photo = 'photos/' . $_FILES['photo1']['name'];
+	// $text = $_POST['text'];
+
+	mysqli_query($conn, "INSERT INTO gallery (photo1) VALUES ('$photo');");
+	$_SESSION['message'] = "Data updated!";
+	unset($_POST['update']);
+	move_uploaded_file($_FILES["photo1"]["tmp_name"], $photo);
+	header('location: ganti_gallery.php');
 }
 
-// REGISTER USER
-function register(){
-	//$sql_u = "TRUNCATE TABLE gallery";
-	$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pemrogweb2";
-
-    // Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    else {
-        mysqli_query($conn, "TRUNCATE TABLE `gallery`");
-        header ("Location: ganti_gallery.php");
-        exit;
-    }
-
-   mysqli_close($conn);
-	
-
-	
-
-	
+if(isset($_POST['delete'])){
+	$photo = $_POST['photo1'];
+	// $text = $_POST['text'];
+	mysqli_query($conn, "DELETE FROM gallery WHERE photo1='$photo';");
+	unset($_POST['delete']);
+	$_SESSION['message'] = "Data deleted!"; 
+	echo('<script>location="ganti_gallery.php";</script>');
 }
-//$errors   = array(); 
-if (isset($_POST['regis'])) {
-	//register();
-	    $target_dir = "gallery/";
-        $target_file = $target_dir . $_FILES['foto']['name'];
-        
-        //$caption = $_POST['caption'];
-        $query = "INSERT INTO gallery VALUES ('$target_file')";
-        echo($query);
-        $results = mysqli_query($conn, $query);
 
-        $status = 1;
-
-        if(getimagesize($_FILES["foto"]["tmp_name"]) == false)
-        {
-            $status = 0;
-        }
-
-        if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file))
-        {
-            header('location: ganti_gallery.php');
-        }
-}
-/*
-		$target_dir = "gallery/";
-		$target_file = $target_dir.$_FILES['foto']['name'];
-				
-        $target_type = explode("/", $_FILES['foto']['type'], 2);
-        $target = $target_file;
-        //$caption = $_POST['caption'];
-        $query = "INSERT INTO gallery VALUES ('$target')";
-        echo($query);
-        $results = mysqli_query($conn, $query);
-
-        $status = 1;
-
-        if(getimagesize($_FILES["foto"]["tmp_name"]) == false)
-        {
-            $status = 0;
-        }
-
-        if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target))
-        {
-            header('location: ganti_gallery.php');
-        }
-*/
-// call the register() function if register_btn is clicked
-
-
-// escape string
 function e($val){
 	global $conn;
 	return mysqli_real_escape_string($conn, trim($val));
@@ -105,4 +39,4 @@ function display_error() {
 			}
 		echo '</div>';
 	}
-}	
+}

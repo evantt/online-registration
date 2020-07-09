@@ -56,8 +56,7 @@
                     //echo "<script type='text/javascript'>alert('logged in');</script>";
                     echo 
                     "<form method='post' action='logout.php'>
-                        <button class = 'btn btn-lg btn-primary btn-block' type = 'submit' 
-                        name = 'logout'>Logout</button>
+                        <li><a href=\"logout.php\">Logout</a></li>
                     </form>";
                 } else {
                     //echo "<script type='text/javascript'>alert('logging out');</script>";

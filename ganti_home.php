@@ -15,6 +15,18 @@
             margin-top: 3rem;
             width: 70%;
         }
+        
+        .btn1{
+            border: 2px solid black;
+            background-color: transparent;
+            
+        }
+
+        .btn1:hover{
+            background-color: black;
+            color: white;
+        }
+        
     </style>
     <head>
         <title>Edit</title>
@@ -22,18 +34,19 @@
         <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>        
-        <?php require("Layout\\header.php"); ?> 
+        <?php require("Layout\\header2.php"); ?> 
 
         <div class="container" style="margin-top: 70px;">
-        <div class="display-4" style="margin: 1rem; text-align: center">Update</div>
+        <!-- <div class="display-4"  text-align: center">Edit Home Page</div> -->
+        <center><h1 style="margin: 2rem;">Edit Laman Home</h1></center>
         
             <form method="post" action="db.ganti_home.php" id="regis_form" enctype="multipart/form-data">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend" <?php if (isset($name_error)): ?> class="form_error" <?php endif ?>>
-                        <span class="input-group-text" id="inputGroup-sizing-default">Upload Gambar &nbsp; <div style="color:red">*</div></span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Upload Photo &nbsp; <div style="color:red">* &nbsp;</div>
+                        <input type="file" name="photo" id="fileToUpload1"></span>
                     </div>
-                    Select file to upload:
-                    <input type="file" name="photo" id="fileToUpload1">
+                    <!-- Select file to upload: -->
                 </div>  
 
                 <div class="input-group mb-3">
@@ -43,7 +56,7 @@
                     <input type="text" name="text" id="fileToUpload2">
                 </div>          
             
-                <button class="btn" type="submit" name="add" style="background: #556B2F;" >Add</button>
+                <button class="btn1" type="submit" name="add" style="width:60px;" >Add</button>
             </form>
 
         </div>
@@ -59,13 +72,13 @@
             $results = mysqli_query($conn, "SELECT * FROM home");
             while ($row = mysqli_fetch_array($results)) { ?>
             <tr>
-            <td><?php echo $row['photo']; ?></td>
+            <td><?php echo ("<a href='" . $row['photo'] . "'>" . $row['photo'] . "</a>"); ?></td>
             <td><?php echo $row['text']; ?></td>
             <td>
                 <form method="post" action="db.ganti_home.php">
                     <input type="hidden" value="<?php echo $row['photo']; ?>" name="photo">
                     <input type="hidden" value="<?php echo $row['text']; ?>" name="text">
-                    <button class="edit_btn" name="delete">Delete</button>
+                    <button class="btn1" name="delete">Delete</button>
                     <!-- <a href="edit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a> -->
                 </form>            
             </td>

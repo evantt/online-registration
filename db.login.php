@@ -29,7 +29,7 @@ function login(){
 	$password    =  e($_POST['password']);
 	$status   =  e($_POST['status']);
 	if($username == "admin" && $password == "admin"){
-		header('location: pilih.php');
+		header('location: admin.php');
 	}
 	else{
 		$bukti_pembayaran    =  e($_POST['bukti_pembayaran']);
@@ -63,7 +63,7 @@ function login(){
 			$_SESSION['password'] = $password;	
 
 			if($username == "admin" && $password == "admin"){
-				header('location: pilih.php');
+				header('location: admin.php');
 			}
 			else
 			{
@@ -71,7 +71,8 @@ function login(){
 			}
         }						
 	} else {
-		echo('<script>alert("Username atau password salah");</script>');
+		// echo('<script>alert("Username atau password salah");</script>');
+		$name_error = "Username atau password salah"; 
 		unset($_POST['login']); 		
 	}
 }

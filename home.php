@@ -61,6 +61,7 @@
             max-width: 1000px;
             position: relative;
             margin: auto;
+            margin-top: 100px;
             }
 
             /* Hide the images by default */
@@ -168,7 +169,7 @@
             while ($row = mysqli_fetch_array($res)) {
                 echo('<div class="mySlides fade">');
                 echo('<div class="numbertext">' . $cnt . '/' . mysqli_num_rows($res) . '</div>');
-                echo("<img src='" . $row['photo'] . "' style='width:100%; height:600px;'>");
+                echo("<img src='" . $row['photo'] . "' style='width:100%; height:500px;'>");
                 echo("<div class='text' style = 'color: black; background-color: white;'>" . $row['text'] . "</div>");
                 echo('</div>');
                 $cnt = $cnt + 1;

@@ -3,7 +3,7 @@
  ?>
 <!DOCTYPE html>
 <style>
-.form_error span {
+    .form_error span {
         width: 80%;
         height: 35px;
         margin: 3px 10%;
@@ -12,6 +12,16 @@
     }
     .form_error input {
         border: 1px solid #D83D5A;
+    }
+    .btn1{
+        border: 2px solid black;
+        background-color: transparent;
+        width: 80px;
+    }
+
+    .btn1:hover{
+        background-color: black;
+        color: white;
     }
 </style>
     <head>
@@ -41,7 +51,7 @@
                     <input type="file" name="bukti_pembayaran" id="fileToUpload">
                 </div>
   
-                <button class="btn btn-primary" name="bayar">Submit</button>                           
+                <button class="btn1" name="bayar">Submit</button>                           
             </form>
         </div>
 
