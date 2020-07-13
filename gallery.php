@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    require "config.php";
-?>
-
 <!DOCTYPE html>
     <head>
         <title>Gallery</title>
@@ -14,15 +9,14 @@
             {
                 text-align: center;
                 /* margin-left: 34%; */
-                margin-top: 80px;
-                padding: 10px;
+                /* margin-top: 40px; */
             }
             /* .ugp{
                 height: 270vh;
                 padding-bottom: 480px;
             } */
             .card {
-                margin-top: 10px;
+                margin-top: 50px;
                 background-color: white;
                 margin: 15;
                 padding: 10;
@@ -35,38 +29,26 @@
                 font-size: x-large;
             }
             .content{
-                display: flex;
-                flex-wrap: wrap;
+                display: flex; 
+                flex-wrap: wrap; 
                 align-items: flex-start;
                 margin: 0;
                 padding: 10;
                 width: 100%;
             }
         </style>
-
+        
         <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
         <?php
             require("Layout/header.php");
-        ?>
+        ?> 
     <!-- <div class="container ugp" id="ugp"> -->
+    <div style = "background-color: aliceblue;">
         <h1>Gallery</h1>
         <div class="content">
-        <?php
-            // $cnt = 1;
-            $res = mysqli_query($conn, "SELECT photo1 FROM gallery;");
-            while ($row = mysqli_fetch_array($res)) {
-                echo('<div class="card">');
-                echo('<div class="desc"></div>');
-                echo("<img src='" . $row['photo1'] . "' style='width:100%; height:95%;' align = 'center'>");
-                // echo("<div class='text' style = 'color: black; background-color: white;'>" . $row['text'] . "</div>");
-                echo('<div class="desc"></div>');
-                echo('</div>');
-                // $cnt = $cnt + 1;
-            }
-        ?>
-            <!-- <div class="card">
+            <div class="card">
                 <div class="desc"></div>
                 <a target="_blank" href="#">
                     <img src="https://lh3.ggpht.com/p/AF1QipNEsz8hRKiq8tRRgh-Fvyqstdvuzy8H5fGIMh8L=s512" style= "width: 100%; height: 95%;" align = "center">
@@ -104,11 +86,12 @@
                     <img src="https://lh5.googleusercontent.com/p/AF1QipPoUoUmHkuWGoxZcPuWyS59Tt5IUxj13S7cPyzx=s480-k-no" style= "width: 100%; height: 95%;" align = "center">
                 </a>
                 <div class="desc"></div>
-            </div> -->
+            </div>
+        </div>
         </div>
         <!-- </div> -->
         <?php
             require("Layout/footer.php");
-        ?>
+        ?> 
     </body>
 </html>

@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    require "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -58,10 +57,11 @@
 
             /* Slideshow container */
             .slideshow-container {
+            margin-top: 90px;
+            margin-left: px;
             max-width: 1000px;
             position: relative;
-            margin: auto;
-            margin-top: 100px;
+            /* margin: auto; */
             }
 
             /* Hide the images by default */
@@ -150,6 +150,32 @@
             to {opacity: 1}
             }
         </style>
+        <style>
+            #a
+                {
+                    
+                    background-image: url("https://www.oakridge.in/wp-content/uploads/2020/02/Sample-jpg-image-500kb.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    
+                    /*background-color: red;*/
+                }
+            #aa
+                {
+                    /*
+                    background-image: url("https://www.oakridge.in/wp-content/uploads/2020/02/Sample-jpg-image-500kb.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    */
+                    background-color: rgba(255,255,255,0.69);
+                    width:82%;
+                    
+                    
+                    /*background-color: red;*/
+                }
+            
+        </style>
+        
         <link rel="stylesheet" href="CSS/main.css">
     </head>
 
@@ -160,25 +186,17 @@
         
         <!-- NOTHINGGGGGGGGGGGG -->
                 <!-- Slideshow container -->
+                <div id="a"><center><div id="aa"><br>
         <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
-        <?php 
-            $cnt = 1;
-            $res = mysqli_query($conn, "SELECT text, photo FROM home;");
-            while ($row = mysqli_fetch_array($res)) {
-                echo('<div class="mySlides fade">');
-                echo('<div class="numbertext">' . $cnt . '/' . mysqli_num_rows($res) . '</div>');
-                echo("<img src='" . $row['photo'] . "' style='width:100%; height:500px;'>");
-                echo("<div class='text' style = 'color: black; background-color: white;'>" . $row['text'] . "</div>");
-                echo('</div>');
-                $cnt = $cnt + 1;
-            }
-        ?>
-        
-        
+        <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="https://3.bp.blogspot.com/_GDx7sQCkliY/SaNBiUQEp0I/AAAAAAAAAQ4/TvabMd8icAQ/w1200-h630-p-k-no-nu/1991+Fisika.jpg" style="width:100%;height:600px;">
+        <div class="text" style = "color: black; background-color: white;">Sekolah Hang Kesturi</div>
+        </div>
 
-        <!-- <div class="mySlides fade">
+        <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
         <img src="https://www.jurnalasia.com/wp-content/uploads/2014/08/FOTO-HL1.jpg" style="width:100%;height:600px;">
         <div class="text" style = "color: black; background-color: white;">Mahasiswa Hang Kesturi 2015</div>
@@ -188,7 +206,7 @@
         <div class="numbertext">3 / 3</div>
         <img src="https://4.bp.blogspot.com/_VlqC-HRuwYY/SgYl6xRYTKI/AAAAAAAAB0Y/pHQzjsBxLg0/s400/alumni-HK-jadul.jpg" style="width:100%;height:600px;">
         <div class="text" style = "color: black; background-color: white;">SD Hang Kesturi</div>
-        </div> -->
+        </div>
 
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -198,30 +216,31 @@
 
         <!-- The dots/circles -->
         <div style="text-align:center">
-        <?php 
-            for($i = 1; $i < $cnt; $i++){
-                echo("<span class='dot' onclick='currentSlide(" . $i . ")'></span>");
-            }
-        ?>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
         </div>
         <!-- NOTHINGGGGGGGGGGGG -->
-        <div style = "text-align: center; font-size: 35px;">
-            <br>SEKOLAH HANG KESTURI MEDAN 2020<hr width = "300px">
-        </div>
-        <div style = "margin-left: 150px; text-align: justify; margin-right: 150px; background-color:aliceblue; font-size:25px;">
+        <center>
+        <div style = "text-align: center; font-size: 35px; background-color:;width:680px;" >
+            <br>SEKOLAH HANG KESTURI MEDAN 2020
+        </div></center><hr width = "300px" color = "black">
+        <center>
+        <div style = " text-align: justify;  margin-top:15px;margin-left:50px;margin-right:50px;background-color:aliceblue; font-size:25px;border:3px inset #2bcf57;padding:10px;">
         &nbsp &nbsp &nbsp &nbsp Sekolah Hang Kesturi Medan memiliki banyak sekali fasilitas. Mulai dari ruang lab komputer, perpustakaan yang lengkap
         ruang guru yang luas, kelas yang luas dan juga ac yang sangat dingin sekali dengan suhu derajat yaitu 16'C dan juga ada 3 ac
         untuk setiap kelas. Lalu, ada pun lapangan yang bisa di pakai oleh para siswa untuk belajar dan juga bermain dengan sesama. Sehingga, mereka
          bisa aktif untuk melakukan olahraga dan juga upacara untuk menghormati hari pahlawan dan lain - lain.
-        </div>    
+        </div>   </center> 
         <br>
         <center>
         <div class="container">
             <img src="https://vignette.wikia.nocookie.net/nonnontv/images/4/4d/Gu1.png/revision/latest/window-crop/width/200/x-offset/421/y-offset/0/window-width/1081/window-height/1080?cb=20180929145433" alt="Avatar" style="width:90px">
             <p style = "font-size: 23px;"><span style = "font-size: 23px;">Kevin Huang.</span> I dont know what im saying.</p>
             <p style = "font-size: 20px;">"Saya suka sama sekolah hang kesturi. Terima kasih hang kesturi sudah menjadi bagian hidup saya. Hang Kesturi Best Choice"</p>
+        </div></center><br>
         </div></center>
-
+</div>
         <!-- NOTHINGGGGGGGGGGGG -->
         <script>
                     var slideIndex = 1;
@@ -254,8 +273,9 @@
             }
         </script>
         <!-- NOTHINGGGGGGGGGGGG -->
-        <?php
+        
+    </body>
+    <?php
             require("Layout/footer.php");
         ?>
-    </body>
 </html>

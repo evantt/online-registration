@@ -14,7 +14,6 @@
                 background: #2E8B57;
                 color: white;
                 border-radius: 3px;
-                width: 100%;
             }
 
             .del_btn {
@@ -23,7 +22,6 @@
                 color: white;
                 border-radius: 3px;
                 background: #800000;
-                width: 100%;
             }
             .msg {
                 margin: 30px auto; 
@@ -37,39 +35,34 @@
             }
 
             footer hr{
-                border: 2px solid #34495E;
-                /* margin-top: 60px; */
-                /* width: 1000px; */
-            }
+    border: 2px solid #34495E;
+    /* margin-top: 60px; */
+    /* width: 1000px; */
+}
 
-            footer{
-                width: 1600px;
-            }
+footer{
+    width: 1600px;
+}
 
-            footer p{
-                text-align: center;
-                color: black;
-                font-size: 1.2rem;
-                padding: 0px 0;
-            }
-
-            h1{
-                margin-top: 60px;
-                padding: 20px;
-            }
+footer p{
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+    padding: 0px 0;
+}
 
         </style>
         <link rel="stylesheet" href="CSS/main.css">
     </head>
     <body>
         <?php
-            require("Layout\\header2.php");
+            require("Layout/header.php");
             $results = mysqli_query($conn, "SELECT * FROM siswa");
             echo '<br>';
         ?>
         
         <center>
-        <h1 >List Daftar Siswa</h1>
+        <h1>Admin</h1>
         <center>
 
         <?php if (isset($_SESSION['message'])): ?>

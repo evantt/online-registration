@@ -14,7 +14,7 @@
 ?>
 <!DOCTYPE html>
 <style>
-    .form_error span {
+.form_error span {
         width: 80%;
         height: 35px;
         margin: 3px 10%;
@@ -23,17 +23,6 @@
     }
     .form_error input {
         border: 1px solid #D83D5A;
-    }
-
-    .btn1{
-        border: 2px solid black;
-        background-color: transparent;
-        width: 80px;  
-    }
-
-    .btn1:hover{
-        background-color: black;
-        color: white;
     }
 </style>
     <head>
@@ -162,7 +151,7 @@
                 </div>   -->
  
                     
-                <button class="btn1" type="submit" name="update">Update</button>
+                <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
                 <!-- <?php if ($update == true): ?> -->
 <!-- <?php else: ?> -->
 	<!-- <button class="btn" type="submit" name="save" >Save</button> -->
