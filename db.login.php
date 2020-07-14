@@ -71,7 +71,8 @@ function login(){
 			}
         }						
 	} else {
-		echo('<script>alert("Username atau password salah");</script>');
+		// echo('<script>alert("Username atau password salah");</script>');
+		$name_error = "Username atau password salah"; 
 		unset($_POST['login']); 		
 	}
 }

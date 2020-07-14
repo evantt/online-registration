@@ -43,14 +43,18 @@
     .form_error input {
         border: 1px solid #D83D5A;
     }
-    #reg_btn {
-        height: 35px;
+    #btn1{
+        border: 2px solid black;
+        background-color: transparent;
+
         width: 80%;
         margin: 5px 10%;
+        height: 35px;
+    }
+
+    #btn1:hover{
+        background-color: black;
         color: white;
-        background: #3B5998;
-        border: none;
-        border-radius: 5px;
     }
   </style>
 </head>
@@ -69,7 +73,7 @@
             <input type="password"  placeholder="Password" name="password">
         </div>
         <div>
-            <button type="submit" name="register" id="reg_btn">Sign Up</button>
+            <button type="submit" name="register" id="btn1">Sign Up</button>
         </div>
     </form>
     <?php require"Layout//footer.php";?>

@@ -20,7 +20,7 @@
             padding-top: 0px;
             padding-bottom: 40px;
             background-color: white;
-            margin-top: -20px;
+            margin-top: 20px;
          }
          
          .form-signin {
@@ -71,6 +71,29 @@
             text-align: center;
             color: black;
          }
+
+         .btn1{
+            border: 2px solid black;
+            background-color: transparent;
+            width: 100%;
+            height: 8%;
+         }
+
+         .btn1:hover{
+            background-color: black;
+            color: white;
+         }
+
+         .form_error span {
+            width: 80%;
+            height: 35px;
+            margin: 3px 10%;
+            font-size: 1.1em;
+            color: #D83D5A;
+         }
+         .form_error input {
+            border: 1px solid #D83D5A;
+         }
       </style>
       
    </head>
@@ -97,9 +120,14 @@
                <div style = "font-size: 22px; color : black;">Password : </div>
             <input type = "password" class = "form-control"
                name = "password" value="<?php echo $_POST['password']; ?>">
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
-               name = "login">Login</button>
+               <?php if (isset($name_error)): ?>
+            <span><?php echo $name_error; ?></span>
+            <?php endif ?>
+            <button class = "btn1" type = "submit" 
+            name = "login">Login</button>
+         </div>
          </form>
+         
          <center>
          Tidak ada account?? Ayo buat sekarang juga!!! <a href="signup.php"> Click here to register</a>
         </center>
