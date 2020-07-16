@@ -11,24 +11,29 @@
         <div class="middle">
             <nav>
                 <ul class="nav__links">
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="gallery.php">Gallery</a></li>
-                    <li><a href="ctc.php">Contact</a></li>
+                    <li><a href="home.php">&#127932;Home</a></li>
+                    <li><a href="gallery.php">	
+	
+                    	
+&#10764;Gallery</a></li>
+                    <li><a href="ctc.php">	
+&#10052;Contact</a></li>
 
                     <?php
                         if(isset($_SESSION['username'])){
                             if(!isset($_SESSION['name'])){
-                                echo("<li><a href='regis.php'>Daftar Siswa</a></li>");
+                                echo("<li><a href='regis.php'>	
+                                &#128898;Daftar Siswa</a></li>");
                             } else{
                                 if($_SESSION['bukti_pembayaran'] == ''){
-                                    echo("<li><a href='bayar.php'>Lanjut Daftar Siswa</a></li>");
+                                    echo("<li><a href='bayar.php'>&#128898;Lanjut Daftar Siswa</a></li>");
                                 } else{
                                     if($_SESSION['status'] == null){
-                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
+                                        echo("<li><a href='terima.php'>&#128898;Cek Status</a></li>");
                                     } else if($_SESSION['status'] == false){
-                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
+                                        echo("<li><a href='terima.php'>&#128898;Cek Status</a></li>");
                                     } if($_SESSION['status'] == true){
-                                        echo("<li><a href='terima.php'>Cek Status</a></li>");
+                                        echo("<li><a href='terima.php'>&#128898;Cek Status</a></li>");
                                     }
                                 }
                             }
@@ -41,7 +46,8 @@
                             // }
                             //echo($_SESSION['bukti_pembayaran']);
                         } else {
-                            echo("<li><a href='login.php'>Daftar Siswa</a></li>");
+                            echo("<li><a href='login.php'>	
+                            &#128898;Daftar Siswa</a></li>");
                         }
                     ?>
                     
