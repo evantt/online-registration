@@ -1,4 +1,5 @@
 <?php
+   error_reporting(0);
    include('db.login.php');
    session_start();
 ?>
@@ -16,9 +17,10 @@
       <link rel="stylesheet" href="CSS/main.css">
       <style>
          body {
-            padding-top: 40px;
+            padding-top: 0px;
             padding-bottom: 40px;
             background-color: white;
+            margin-top: 20px;
          }
          
          .form-signin {
@@ -69,6 +71,29 @@
             text-align: center;
             color: black;
          }
+
+         .btn1{
+            border: 2px solid black;
+            background-color: transparent;
+            width: 100%;
+            height: 8%;
+         }
+
+         .btn1:hover{
+            background-color: black;
+            color: white;
+         }
+
+         .form_error span {
+            width: 80%;
+            height: 35px;
+            margin: 3px 10%;
+            font-size: 1.1em;
+            color: #D83D5A;
+         }
+         .form_error input {
+            border: 1px solid #D83D5A;
+         }
       </style>
       
    </head>
@@ -91,13 +116,18 @@
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
             <div style = "font-size: 22px; color : black;">Username : </div>
             <input type = "text" class = "form-control" 
-               name = "username" style = "border-color: black;"></br>
+               name = "username" style = "border-color: black;"value="<?php echo $_POST['username']; ?>"></br>
                <div style = "font-size: 22px; color : black;">Password : </div>
             <input type = "password" class = "form-control"
-               name = "password">
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
-               name = "login">Login</button>
+               name = "password" value="<?php echo $_POST['password']; ?>">
+               <?php if (isset($name_error)): ?>
+            <span><?php echo $name_error; ?></span>
+            <?php endif ?>
+            <button class = "btn1" type = "submit" 
+            name = "login">Login</button>
+         </div>
          </form>
+         
          <center>
          Tidak ada account?? Ayo buat sekarang juga!!! <a href="signup.php"> Click here to register</a>
         </center>
